@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+const {name,version} = require('../package.json');
+const program = require('commander')
+const figlet = require('figlet');
+const versionStr = figlet.textSync(name);
+const Printer = require('@darkobits/lolcatjs');
+
+const transformed = Printer.default.fromString(
+    ` \n<<海拓时代>> 命令行工具 ${version} \n ${versionStr}`
+  );
+program
+    .version(transformed)
+    .command('create')
+    .description('初始化模块')
+    .action((source, destination)=>{
+        require('../lib/create.js')(source, destination)
+    });
+
+
+
+
+    program.parse(process.argv);

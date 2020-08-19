@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="javascript" id="a"></a>
+
+    <script src="https://lib.baomitu.com/jquery/3.5.0/jquery.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                url:'http://localhost:2020/getCaptcha',
+                type:"get",
+                dataType:"JSON",
+                success:function(data){
+                    console.log(data.data);
+                    $("#a").html(data.data)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

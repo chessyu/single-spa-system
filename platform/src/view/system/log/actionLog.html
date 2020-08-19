@@ -1,0 +1,79 @@
+<template>
+    <div class="ht_content-container animation-left">
+        <div class="ht_content-view">
+            <div class="ht__query-box">
+                <Form ref="roleForm" :model="menuQuery" :label-width="80" class="form__style">
+                    <FormItem label="系统模块" class="form_item" prop="title">
+                        <Input v-model="menuQuery.title" placeholder="请输入模块名称" />
+                    </FormItem>
+                    <FormItem label="操作人员" class="form_item" prop="operName">
+                        <Input v-model="menuQuery.operName" placeholder="请输入操作人员" />
+                    </FormItem>
+                    <FormItem label="类型"  class="form_item"  prop="businessType">
+                        <Select v-model="menuQuery.businessType">
+                            <Option value="1">正常</Option>
+                            <Option value="0">禁用</Option>
+                        </Select>
+                    </FormItem>
+                   <FormItem label="状态"  class="form_item"  prop="status">
+                        <Select v-model="menuQuery.status">
+                            <Option value="1">正常</Option>
+                            <Option value="0">禁用</Option>
+                        </Select>
+                    </FormItem>
+                    <FormItem label="操作时间"  class="form_item"  prop="created">
+                        <DatePicker  v-model="menuQuery.created" type="datetimerange" format="yyyy-MM-dd HH:mm" placeholder="请选择操作时间段" confirm @on-change="dataPickerOk" @on-clear="timeClear"></DatePicker>
+                    </FormItem>
+                    <FormItem  class="form_item">
+                        <Button type="primary" icon="ios-search" @click="query">查询</Button>
+                        <Button icon="md-sync" @click="reset">重置</Button>
+                    </FormItem>
+                </Form>
+            </div>
+            <div class="sys__table">
+                <div  class="table" id="logTable">
+                    <!-- <ButtonGroup class="buttonGroup">
+                        <Button type="primary" size="small" @click="add">
+                            <Icon type="md-add"></Icon>新增
+                        </Button>
+                        <Button type="info" size="small" @click="edit">
+                            <Icon type="ios-create-outline"></Icon>修改
+                        </Button>
+                        <Button  size="small">
+                        <Dropdown  @on-click="dropDownList">
+                            更多
+                            <Icon type="ios-more"></Icon>
+                            <DropdownMenu slot="list">
+                                <DropdownItem name="jurdiction"><Icon type="ios-checkmark-circle-outline moer_icon" />权限</DropdownItem>
+                                <DropdownItem name="delete"><Icon type="ios-trash-outline moer_icon" />删除</DropdownItem>
+                            </DropdownMenu>
+                        </Dropdown>
+                        </Button>
+                    </ButtonGroup> -->
+                    <Table :height="tableHeight" row-key="id" :loading="loading" :columns="titleConfig" :data="menuData" highlight-row @on-current-change="onCurrentChange">
+                        <template slot-scope="{ row }" slot="roleSort">
+                            <Tag color="cyan">{{row.roleSort}}</Tag>
+                        </template>
+                        <template slot-scope="{ row }" slot="status">
+                            <Tag color="success" v-if="row.status == '0'">成功</Tag>
+                            <Tag color="error" v-else>失败</Tag>
+                        </template>
+                        <template slot-scope="{ row }" slot="action">
+                            <span class="tableButtom" @click="edit(row)"><Icon type="ios-eye" />详情</span>
+                        </template>
+                    </Table>
+                </div> 
+                <div class="page">
+                    <Page :total="pageTotal" show-total show-sizer @on-change="pageChange" @on-page-size-change="pageSizeChange" />
+                </div>
+            </div>
+        </div>
+        <role-add :showAdd="showAdd" :actionType="actionType" :rowData="rowData" @roleColse="roleColse"  @reload="query"/>
+    </div>
+</template>
+
+<script src="./actionLog.js"></script>
+
+<style lang="less" scoped>
+
+</style>

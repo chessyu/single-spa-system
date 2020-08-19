@@ -1,0 +1,127 @@
+.lnkBlack{
+    @import '~view-design/src/styles/index.less';
+    --themeBackColor : #191a23;   //header 主题色
+    // --themeBackColor : linear-gradient(90deg, #191a23, #262835,#434554);   //header 主题色
+
+    --borderColorShadow : #353535;  //边框线隐影
+    --borderColor : #e0e0e0;  //边框线
+
+    /**  tag 已开标签的样式  */
+    --acitveBackColor: #2d8cf0;  //选中背景色
+    --themColor:#fff;  //选中字体色
+    
+    --noActiveBackColor: #fff;  //未选中背景色
+    --noActiveFontColor: #515a6e; //未选中字体颜色
+    /**  tag 已开标签样式组*/
+
+    --fontColor:#fff; //字体颜色
+    --activeElColor: #fff; //。选中元素内的子元素背景色
+
+    // Color
+    // @primary-color          : #3d3e4a;
+    // @link-color             : #178600;
+    /******************* 当前主题特定样式 ****************************/
+
+    #nprogress .bar {
+        background:white !important; //自定义颜色
+    }
+
+       //解决主题下iview某些组件高度不对
+.ivu-select{
+    line-height: unset;
+}
+.ivu-select-selected-value{
+    margin-left: 5px;
+}
+.ivu-select-single .ivu-select-selection {
+    height: 32px;
+    position: relative;
+}
+.ivu-select-single .ivu-select-selection .ivu-select-placeholder, .ivu-select-single .ivu-select-selection .ivu-select-selected-value {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 8px;
+    padding-right: 24px;
+}
+.ivu-select .ivu-select-dropdown {
+    width: auto;
+}
+textarea.ivu-input {
+    max-width: 100%;
+    height: auto;
+    min-height: 32px;
+    vertical-align: bottom;
+    font-size: 14px;
+}
+.ivu-spin-fix .ivu-spin-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+// .ivu-table-wrapper table {
+//     width: 100% !important;
+// }
+
+.ivu-select-multiple .ivu-select-selection {
+    padding: 0 24px 0 4px;
+}
+.ivu-select-multiple .ivu-select-selection .ivu-select-placeholder {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    color: #c5c8ce;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 4px;
+    padding-right: 22px;
+}
+
+.ivu-layout.ivu-layout-has-sider > .ivu-layout, .ivu-layout.ivu-layout-has-sider > .ivu-layout-content {
+    overflow: hidden;
+}
+
+.ivu-notice-with-desc .ivu-notice-icon {
+    font-size: 36px;
+    top: -6px;
+}
+
+.ivu-notice-content-with-icon, .ivu-notice-with-desc.ivu-notice-with-icon .ivu-notice-title {
+    margin-left: 51px;
+}
+
+.ivu-notice-with-icon .ivu-notice-title {
+    margin-left: 26px;
+}
+
+.ivu-notice-with-desc .ivu-notice-title {
+    margin-bottom: 8px;
+}
+.ivu-notice-content-with-icon, .ivu-notice-with-desc.ivu-notice-with-icon .ivu-notice-title {
+    margin-left: 51px;
+}
+
+.ivu-notice-with-desc.ivu-notice-with-icon .ivu-notice-desc {
+    margin-left: 51px;
+}
+.ivu-modal-no-mask {
+    pointer-events: auto;
+    background: rgba(0, 0, 0, 0.14);
+}
+.ivu-split-horizontal{
+    height: 100%;
+}
+// .ivu-modal{
+//     width: 100% !important;
+// }
+
+
+}

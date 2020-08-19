@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="importmap-type" content="systemjs-importmap">
+    <!--injectjs-->
+    <link rel="preload" href="/cdn/single-spa.js" as="script" crossorigin="anonymous" />
+    <link rel="preload" href="/cdn/vue.js" as="script" crossorigin="anonymous" />
+    <script src="/cdn/system.min.js"></script>
+    <script src="/cdn/import-map-overrides.js"></script>
+    <script src="/cdn/amd.min.js"></script>
+    <script src="/cdn/named-exports.js"></script>
+    <script src="/cdn/named-register.min.js"></script>
+    <script src="/cdn/use-default.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>

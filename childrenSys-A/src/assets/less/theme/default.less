@@ -1,0 +1,89 @@
+
+
+.default{
+    @import '~view-design/src/styles/index.less';
+    --themeBackColor : linear-gradient(90deg, #1d42ab, #2173dc, #1e93ff);   //header 主题色
+
+    --borderColorShadow : #e0e0e0;  //边框线隐影
+    --borderColor : #e0e0e0;  //边框线
+
+    /**  tag 已开标签的样式  */
+    --acitveBackColor: #07bb6ac7;  //选中背景色
+    --themColor:#fff;  //选中字体色
+    
+    --noActiveBackColor: #fff;  //未选中背景色
+    --noActiveFontColor: #515a6e; //未选中字体颜色
+    /**  tag 已开标签样式组*/
+
+    --fontColor:#fff; //字体颜色
+    --activeElColor: #98dafc; //。选中元素内的子元素背景色
+    
+    #nprogress .bar {
+        background:var(--acitveBackColor) !important; //加载条自定义颜色
+    }
+    
+
+   //解决主题下iview某些组件高度不对
+.ivu-select{
+    line-height: unset;
+}
+.ivu-select-selected-value{
+    margin-left: 5px;
+}
+.ivu-select-single .ivu-select-selection {
+    height: 32px;
+    position: relative;
+}
+.ivu-select-single .ivu-select-selection .ivu-select-placeholder, .ivu-select-single .ivu-select-selection .ivu-select-selected-value {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 8px;
+    padding-right: 24px;
+}
+.ivu-select .ivu-select-dropdown {
+    width: auto;
+}
+textarea.ivu-input {
+    max-width: 100%;
+    height: auto;
+    min-height: 32px;
+    vertical-align: bottom;
+    font-size: 14px;
+}
+.ivu-spin-fix .ivu-spin-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+// .ivu-table-wrapper table {
+//     width: 100% !important;
+// }
+
+.ivu-select-multiple .ivu-select-selection {
+    padding: 0 24px 0 4px;
+}
+.ivu-select-multiple .ivu-select-selection .ivu-select-placeholder {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    color: #c5c8ce;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 4px;
+    padding-right: 22px;
+}
+
+.ivu-layout.ivu-layout-has-sider > .ivu-layout, .ivu-layout.ivu-layout-has-sider > .ivu-layout-content {
+    overflow: hidden;
+}
+
+}
