@@ -38,10 +38,5 @@ export const setCacheData = (state,info) => {
     Object.assign(state.cache, info);
 }
 
-//修改服务端请求API接口地址
-export const setServerApi = (state,info) => {
-    state.serverApi = info;
-}
-
 
 

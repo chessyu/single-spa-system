@@ -28,10 +28,7 @@ export const setCacheData = (context,data) => {
     context.commit('setCacheData',data)
 }
 
-//修改服务端API接口地址
-export const setServerApi = (context,data) => {
-    context.commit('setServerApi',data)
-}
+
 
 
 

@@ -18,71 +18,71 @@ export default[
     {
         path:'/layout',
         name:'layout',
-        redirect:'/ABP/index',
+        redirect:'/s_crm/index',
         component:() => import(/* webpackChunkName: "layout" */ '@/view/layout/layout.vue'),
         children:[
             {
-                path:'/ABP/index',
+                path:'/s_crm/index',
                 name:'index',
                 component:() => import(/* webpackChunkName: "home" */ '@/view/home/home.vue')
             },
             {
-                path:'/ABP/system/user',
+                path:'/s_crm/system/user',
                 name:'user',
                 component: () => import(/* webpackChunkName: "user" */ '@/view/system/user.vue')
             },
             {
-                path:'/ABP/system/role',
+                path:'/s_crm/system/role',
                 name:'role',
                 component: () => import(/* webpackChunkName: "role" */ '@/view/system/role.vue')
             },
             {
-                path:'/ABP/system/menu',
+                path:'/s_crm/system/menu',
                 name:'menuT',
                 component: () => import(/* webpackChunkName: "menu" */ '@/view/system/menu.vue')
             },
             {
-                path:'/ABP/system/dict',
+                path:'/s_crm/system/dict',
                 name:'dict',
                 component: () => import(/* webpackChunkName: "dict" */ '@/view/system/dict.vue')
             },
             {
-                path:'/ABP/system/dictData:dictType',
+                path:'/s_crm/system/dictData:dictType',
                 name:'dictData',
                 component: () => import(/* webpackChunkName: "dictData" */ '@/view/system/dictData.vue')
             },
             {
-                path:'/ABP/system/dept',
+                path:'/s_crm/system/dept',
                 name:'dept',
                 component: () => import(/* webpackChunkName: "dept" */ '@/view/system/dept.vue')
             },
             {
-                path:'/ABP/system/post',
+                path:'/s_crm/system/post',
                 name:'post',
                 component: () => import(/* webpackChunkName: "post" */ '@/view/system/post.vue')
             },
             {
-                path:'/ABP/system/userCenter',
+                path:'/s_crm/system/userCenter',
                 name:'userCenter',
                 component: () => import(/* webpackChunkName: "userCenter" */ '@/component/userCenter/userCenter.vue')
             },
             {
-                path:'/ABP/system/actionLog',
+                path:'/s_crm/system/actionLog',
                 name:'actionLog',
                 component: () => import(/* webpackChunkName: "actionLog" */ '@/view/system/log/actionLog.vue')
             },
             {
-                path:'/ABP/system/report',
+                path:'/s_crm/system/report',
                 name:'report',
                 component: () => import(/* webpackChunkName: "report" */ '@/view/system/report.vue')
             },
             {           
-                path:'/ABP/systemUtils/formGenerator',
+                path:'/s_crm/systemUtils/formGenerator',
                 name:'formGenerator',
                 component: () => import(/* webpackChunkName: "formGenerator" */ '@/view/systemUtils/formGenerator.vue')
             },
             {           
-                path:'/ABP/systemUtils/structureConfig',
+                path:'/s_crm/systemUtils/structureConfig',
                 name:'structureConfig',
                 component: () => import(/* webpackChunkName: "structureConfig" */ '@/view/systemUtils/structureConfig.vue')
             }

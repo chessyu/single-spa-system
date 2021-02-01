@@ -77,7 +77,8 @@ export default{
                         }
                         Cookies.set('Admin-Token',data.data,{expires: 30});
                         let userData = await PA_getUserdata();
-                        this.setUserData(userData.data.user);
+                        console.log(userData)
+                        this.setUserData(userData.data.userData);
                         this.setUserButtomPower(userData.data.permissions);
                         this.$router.push({name:'layout'})
                         this.$Message.success(data.msg);

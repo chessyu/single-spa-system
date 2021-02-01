@@ -3,7 +3,7 @@ const path = require('path');
 //解析需要遍历的文件夹，我的changName.js和27670326文件夹是同一个目录，27670326文件夹就是我要处理的文件夹
 
 const filePath = path.join(__dirname,'../src');
-const name = ['.vue','.html']; 
+const name = ['.css','.less']; 
 
 //调用文件遍历方法
 fileDisplay(filePath);

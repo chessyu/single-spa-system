@@ -23,7 +23,7 @@ export default{
         height:0
     },
     cache:{},                 //所有平台所需的缓存数据
-    serverApi:[],          //所有系统请求的服务端 API 接口地址 
+
 
 }
 

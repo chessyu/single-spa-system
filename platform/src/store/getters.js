@@ -23,7 +23,6 @@ export const getViewPort = (state,getters) => { return state.viewport }
 //获取缓存数据
 export const getCacheData = (state,getters) => { return state.cache }
 
-//获取服务端接口地址
-export const getServerApi = (state,getters) => { return state.serverApi }
+
 
 

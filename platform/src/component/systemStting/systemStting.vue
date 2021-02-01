@@ -1,0 +1,98 @@
+
+<template>
+  <div class="component__themeConfig" ref="component__themeConfig">
+        <Drawer :closable="false" width="280" v-model="flage">
+            <Divider>主题风格设置</Divider>
+            <ul class="theme">
+                <li>
+                    <Tooltip content="天空蓝" placement="top-start">
+                        <div class="_a default" name="default" @click="themeSelect"></div>
+                    </Tooltip>
+                </li>
+                <li>
+                    <Tooltip content="星际黑" placement="top">
+                        <div class="_a lnkBlack" name="lnkBlack" @click="themeSelect"></div>
+                    </Tooltip>
+                </li>
+                <li>
+                    <Tooltip content="米洁白" placement="top">
+                        <div class="_a pureWhite" name="pureWhite" @click="themeSelect"></div>
+                    </Tooltip>
+                </li>
+                <li>
+                    <Tooltip content="橙黄" placement="top-end">
+                        <div class="_a yellOra" name="yellOra" @click="themeSelect"></div>
+                    </Tooltip>
+                </li>
+            </ul>
+            <Divider>其它设置</Divider>
+            <ul class="other_setting">
+                <!-- <li>
+                    <div class="set_title">开启全局导航</div>
+                    <div class="set_temp">
+                        <i-switch v-model="getSysConfig.showBread"></i-switch>
+                    </div>
+                </li> -->
+                <li>
+                    <div class="set_title">系统切换保留标签</div>
+                    <div class="set_temp">
+                        <i-switch v-model="getSysConfig.keepAliveTag"></i-switch>
+                    </div>
+                </li>
+            </ul>
+        </Drawer>
+  </div>
+</template>
+
+<script src="./systemStting.js"></script>
+
+<style lang='less' scoped>
+.component__themeConfig{
+  width: 100%;
+  height: 100%;
+}
+.theme{
+    display: flex;
+    & li{
+        flex: 1;
+        margin: 10px;
+        & div{
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 10px 1px #c7c7c7;
+            transition: all .3s linear
+        }
+    }
+    & li:hover ._a{
+        transform: scale(1.1);
+    }
+    .default{
+        background: linear-gradient(90deg, #1d42ab, #2173dc, #1e93ff);
+    }
+    .lnkBlack{
+        background: linear-gradient(90deg, #191a23, #2f303c, #4c4d5a);;
+    }
+    .pureWhite{
+        background: linear-gradient(90deg, #fff, #fffefe, #f9f8f8);;
+    }
+    .yellOra{
+        background: linear-gradient(90deg, orange, #f9ac1e, #fdbc45);;
+    }
+}
+.other_setting{
+    & li{
+        height: 30px;
+        line-height: 30px;
+        margin: 15px 0;
+        & .set_title{
+            float: left;
+        }
+        & .set_temp{
+            float: right;
+        }
+    }
+}
+
+</style>

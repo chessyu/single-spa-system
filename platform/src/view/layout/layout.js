@@ -105,50 +105,35 @@ export default {
       
       //取出数据 进行整理；
       let menuList = await PA_getMenuList({projectId:menuId});
-      menuList = menuList.data;
-      // let routerMain = window.$spaConfig.filter(e => e.projectName == module);  //找到当前选中的子系统路由
-      // let indexPath = routerMain[0].router.__esModule ? routerMain[0].router["default"].filter(e => e.name == 'layout') : routerMain[0].router.filter(e => e.name == 'layout');
-      // if(module == "ABP"){  //菜单不要显示首页列
-      //   menuList.unshift({
-      //     meta:{title: "首页", icon: "ios-stats"},
-      //     path:indexPath[0].children[0].name,
-      //     component: indexPath[0].redirect,
-      //     children: []
-      //   })
-      // }
-      this.menu = menuList;
+      this.menu = menuList.data;
     },
     //获取有子系统权限数据
     async getChildrenModel(){
       let data = await PA_getChildrenModel();
-      let childrenData = [], serverApi = [];       // 服务端API。
-      data.data.map(e=>{
-        this.childrenSysData.push(e.path);
-        serverApi.push({                                    // 服务端API。
-          code:e.path,
-          url:  e.component.split(',')[1],
-          clientUrl: e.component.split(",")[0]
-        });
+      let childrenData = []
+      data.data.map(e=>{ 
+        this.childrenSysData.push(e.system_code);
+        
         childrenData.push({
-          menuId : e.menuId,
+          menuId : e.system_id,
           icon:e.icon,
-          menuName:e.menuName,
+          menuName:e.system_name,
           code:e.path
         })
       })
       
-      this.setServerApi(serverApi)                   // 服务端API。
+     
       this.sonSystem = childrenData;
-      let hasAbpModel = childrenData.filter(e => e.code == "ABP")   //判断当前用户有没有《基础平台》的权限
+      let hasAbpModel = childrenData.filter(e => e.menuName == "CRM")   //判断当前用户有没有《基础平台》的权限
       if(hasAbpModel.length){
         //将本地路由挂载到window上的$spaConfig属性上
         let router = JSON.parse(JSON.stringify(this.$router.options.routes))
         window.$spaConfig = [{
-          projectCode:'ABP',
-          projectName: '平台',
+          projectCode:'CRM',
+          projectName: '客户管理系统',
           router:router
         }]
-        this.loaderSuccessChildrenSys.push("ABP");
+        this.loaderSuccessChildrenSys.push("CRM");
       }
       this.prefix = '/'+childrenData[0].code;
       this.getDefultMenuList( childrenData[0].menuId,childrenData[0].code);  //获取默认选中平台系统的菜单数据
@@ -534,8 +519,6 @@ export default {
           }
         }
         if(_this.childrenSysData.includes("CCP")){
-          // let ccp = (_this.getServerApi.filter(m => m.code === "CCP")[0].clientUrl)+ "/script/main.bundle.js";
-          // ccp = process.env.NODE_ENV === 'development' ? "CCP" : ccp;
           singleSpa.registerApplication(
             '中控平台',
             () => window.System.import('CCP'), 
@@ -659,7 +642,6 @@ export default {
         this.local = [];
       }
     },
-    ...mapActions(["setServerApi"])
   },
   computed: {
     menuitemClasses() {
@@ -672,7 +654,7 @@ export default {
     rotateIcon() {
       return ["menu-icon", this.isCollapsed ? "rotate-icon" : ""];
     },
-    ...mapGetters(["getUserData","getSysConfig","getLayoutTag","getRoutersConfig","getViewPort","getCacheData","getServerApi"]),
+    ...mapGetters(["getUserData","getSysConfig","getLayoutTag","getRoutersConfig","getViewPort","getCacheData"]),
     getCacheTemplate(){
       return this.getLayoutTag.map(e => {
         return e.path;

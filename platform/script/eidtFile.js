@@ -4,7 +4,7 @@ const path = require('path');
 
 const filePath = path.join(__dirname,'../src');
 // const filePath = path.join(__dirname,'../packages');
-const name = ['.vue','.html']; 
+const name = ['.html','.vue']; 
 
 //调用文件遍历方法
 fileDisplay(filePath);
