@@ -174,7 +174,7 @@
     float: right;
 }
 .login-bottom{
-    background: linear-gradient(90deg, #1d42ab, #2173dc, #1e93ff);
+    background: linear-gradient(90deg,var(--themColor), var(--themColorT), var(--themColorS));
     color: #fff;
     text-align: center;
     cursor: pointer;
@@ -182,7 +182,7 @@
     border-radius: 3px;
 }
 .login-bottom:hover{
-    background: linear-gradient(90deg, #3254b1, #317cdf, #42a4ff);
+    opacity: .9;
 }
 @keyframes wave {
     0%{

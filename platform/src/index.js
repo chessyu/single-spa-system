@@ -12,7 +12,6 @@ import buttomPower from '@/directive'
 import 'public-component-ui/lib/public-component-ui.css'
 import '@/assets/less/index.less'
 import './assets/font/iconfont.css'
-// import 'view-design/dist/styles/iview.css';
 import '@/assets/less/setTheme'
 import 'echarts/theme/macarons'
 

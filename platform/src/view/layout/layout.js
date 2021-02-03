@@ -19,7 +19,7 @@ export default {
       openThemeConf: false,  //配置主题
       menu: [],                        //菜单
       layoutTag:[],                 //标签
-      systemTitle:{                //当前选中的系统名称
+      currentSystem:{                //当前选中的系统名称
         systemName:'',
         systemIcon:""
       }, 
@@ -28,12 +28,12 @@ export default {
         //   menuId:11,
         //   icon:'ios-color-palette',
         //   menuName:'平台配置',
-        //   code:'ABP',
+        //   code:'CRM',
         // },
       ],
       loaderSuccessChildrenSys:[],   //加载成功的子系统
       childrenSysData:[],                  //加载子系统时所需的依赖项，，权限需求
-      prefix:'',                                  //路径前缀
+
       openMenu:[],                            //展开菜单缓存
       local:[],                                    //缓存操作的dom
     };
@@ -44,7 +44,7 @@ export default {
     this.initViewPort();
     this.sonSystemAction();
     this.getChildrenModel();               //取权限下的子系统数据
-    this.initRouter(); //初始化 绑定所有子系统的路由到平台路由下
+    //this.initRouter(); //初始化 绑定所有子系统的路由到平台路由下
   },
   methods: {
     //初始化 绑定所有子系统的路由到平台路由下
@@ -60,7 +60,7 @@ export default {
           })
           this.loaderSuccessChildrenSys.push(e.data.systemCode);
           window.$spaConfig.forEach((element,i) => {
-            if(element.projectCode !== "ABP"){
+            if(element.projectCode !== "CRM"){
               element.router['default'].map(e => {
                 if(e.name == "layout"){
                   e.children.map(k=>{
@@ -81,7 +81,7 @@ export default {
       if(!this.getSysConfig.keepAliveTag){  //当全局配置保留新开标签
         //刷新重定向 平台首页，并选中
         this.layoutTag = this.getLayoutTag.filter(e => {
-          if(e.module == document.getElementsByClassName("link__active")[0].getAttribute("syscode") || e.module == null){
+          if(e.module == this.currentSystem.systemCode || e.module == null){
             return e
           }
         })
@@ -111,20 +111,21 @@ export default {
     async getChildrenModel(){
       let data = await PA_getChildrenModel();
       let childrenData = []
+
       data.data.map(e=>{ 
         this.childrenSysData.push(e.system_code);
         
         childrenData.push({
           menuId : e.system_id,
           icon:e.icon,
-          menuName:e.system_name,
-          code:e.path
+          systemName:e.system_name,
+          code:e.system_code
         })
       })
       
      
       this.sonSystem = childrenData;
-      let hasAbpModel = childrenData.filter(e => e.menuName == "CRM")   //判断当前用户有没有《基础平台》的权限
+      let hasAbpModel = childrenData.filter(e => e.code == "CRM")   //判断当前用户有没有《基础平台》的权限
       if(hasAbpModel.length){
         //将本地路由挂载到window上的$spaConfig属性上
         let router = JSON.parse(JSON.stringify(this.$router.options.routes))
@@ -135,10 +136,11 @@ export default {
         }]
         this.loaderSuccessChildrenSys.push("CRM");
       }
-      this.prefix = '/'+childrenData[0].code;
+
       this.getDefultMenuList( childrenData[0].menuId,childrenData[0].code);  //获取默认选中平台系统的菜单数据
-      this.systemTitle = {                //当前选中的系统名称
-        systemName:childrenData[0].menuName,
+      this.currentSystem = {                //当前选中的系统名称
+        systemName:childrenData[0].systemName,
+        systemCode:childrenData[0].code,
         systemIcon:childrenData[0].icon
       };
       this.system();   //加载所有子系统
@@ -217,24 +219,21 @@ export default {
       });
     },
     //打开菜单 新增选项卡
-    openMenuItem(key,type,barName = undefined) {
-      // debugger
-      // if(!type){
-      //   this.breadcrumbItem(event);  //新增面包屑
-      // }
-      let hasTag = this.getLayoutTag.filter(e => e.path === key);
+    openMenuItem(path,type) {
+      let hasTag = this.getLayoutTag.filter(e => e.path === path);
+
       if (hasTag.length === 0) {
-        let menuName = barName ? barName : event.target.textContent;
         this.getLayoutTag.map(e => { e.active = false});
-        let isSonSysTYpe = !(document.getElementsByClassName("link__active")[0].getAttribute("syscode") == "ABP");
-        let routerPath = event.currentTarget.getAttribute("href");
+        let isSonSysTYpe = this.currentSystem.systemCode == "CRM";
+        let routerPath = "/"+path.split('_').join('/');
+
         this.getLayoutTag.push({
-          name: menuName,
-          path: key,
+          name: event.currentTarget.getAttribute("title"),
+          path:  path,
           index: this.getLayoutTag.length,
           active:true,
           isSonSys:isSonSysTYpe,
-          module:document.getElementsByClassName("link__active")[0].getAttribute("syscode"),
+          module:this.currentSystem.systemCode,
           routerPath
         })
         this.isCloseTag();
@@ -249,7 +248,7 @@ export default {
             this.tagListWidth = Width;
             document.getElementsByClassName("tag_list")[0].style.width = "calc(100% - 90px)";
           }
-          this.TagActive(key);
+          this.TagActive(path);
         });
       } else {
         this.TagActive(hasTag[0].path);
@@ -433,60 +432,28 @@ export default {
       }
     },
     //选择子应用
-    selectSetem(){
-      if(!this.loaderSuccessChildrenSys.includes(event.currentTarget.getAttribute("syscode"))){   //子系统未加载完成时所做操作时的提示
+    selectSetem(item){
+      item = JSON.parse(item);
+      if(!this.loaderSuccessChildrenSys.includes(item.code)){   //子系统未加载完成时所做操作时的提示
         this.$Message.error('当前子系统正在加载中，请稍候！');
         return
       }
-      let _this = event.currentTarget;
-      let parent = _this.parentNode.children;
-      _this.classList.add('link__active');
-      this.systemTitle.systemName = _this.innerText;
-      this.systemTitle.systemIcon = _this.getAttribute("sysicon");
-      this.prefix = '/'+ _this.getAttribute("sysCode");
-      for(let i=0; i< parent.length; i++){
-        if(parent[i].getAttribute('menuId') !== _this.getAttribute('menuId')){
-          parent[i].classList.remove('link__active');
-        }
-      }
+      this.currentSystem.systemName = item.systemName;
+      this.currentSystem.systemCode=item.code;
+      this.currentSystem.systemIcon = item.icon;
+
       this.$nextTick(()=>{
-        this.getDefultMenuList(Number(_this.getAttribute('menuId')),_this.getAttribute('sysCode'));
+        this.getDefultMenuList(Number(item.menuId),item.code);
         let router;
         window.$spaConfig.forEach((element,i) => {
-          if(element.projectCode == _this.getAttribute("syscode")){
+          if(element.projectCode ==item.code){
             router = element.router["default"] || element.router
             router = router.filter(e => e.name == 'layout')[0].children
           }
         });
-        this.bread = ['发行平台',_this.innerText,_this.innerText+'首页'];
-        // this.$router.push({'name':router[0].name});   //改：去除子系统首页
-        //let isSonSysTYpe = !(_this.getAttribute("syscode") == "ABP");    //判断当前点击是否是子系统
         if(this.getSysConfig.keepAliveTag){
-          //改：去除子系统首页
-          // let hasTag = this.getLayoutTag.filter(e => e.path === router[0].name);
-          // if(hasTag.length === 0){
-          //   this.getLayoutTag.push({
-          //     path : router[0].name,
-          //     index : Number(this.getLayoutTag.length),
-          //     name : _this.innerText + '首页',
-          //     active:true,
-          //     isSonSys : isSonSysTYpe,
-          //   })
-          // }
-          // this.TagActive(router[0].name)
           this.layoutTag = this.getLayoutTag;
         }else{
-          //改：去除子系统首页
-          // this.$store.commit('setLayoutTag',[
-          //   {
-          //     path : router[0].name,
-          //     index : 0,
-          //     name : _this.innerText + '首页',
-          //     active:true,
-          //     isSonSys : isSonSysTYpe,
-          //   }
-          // ])
-          // this.TagActive(router[0].name)
 
           //保留历史新开标签
           this.layoutTag = this.getLayoutTag.filter(e => {
@@ -495,7 +462,7 @@ export default {
             }else{
               e.active = false;
             }
-            if(e.module === event.currentTarget.getAttribute("syscode") || e.module == null ){
+            if(e.module === item.code || e.module == null ){
               return e;
             }
           });
@@ -582,7 +549,7 @@ export default {
     //是否关闭标签保留
     isCloseTag(){
       if(!this.getSysConfig.keepAliveTag){
-        this.layoutTag = this.getLayoutTag.filter(e => e.module == document.getElementsByClassName("link__active")[0].getAttribute("syscode") || e.module == null)
+        this.layoutTag = this.getLayoutTag.filter(e => e.module == this.currentSystem.systemCode || e.module == null)
       }else{
         this.layoutTag = this.getLayoutTag;
       }

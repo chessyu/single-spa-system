@@ -5,7 +5,7 @@ const system = [
         system_code : "CRM",
         menu_id:1,
         icon:'',
-        path:'s_crm',
+        path:'crm',
         status:1,
         create_time :'2021-01-30',
         create_user : '系统管理员'
@@ -16,7 +16,7 @@ const system = [
         system_code : "ORM",
         menu_id:2,
         icon:'',
-        path:'s_orm',
+        path:'orm',
         status:1,
         create_time :'2021-01-30',
         create_user : '系统管理员'
@@ -27,7 +27,7 @@ const system = [
         system_code : "ACM",
         menu_id:3,
         icon:'',
-        path:'s_acm',
+        path:'acm',
         status:1,
         create_time :'2021-01-30',
         create_user : '系统管理员'
@@ -38,7 +38,7 @@ const system = [
         system_code : "SYC",
         menu_id:4,
         icon:'',
-        path:'s_syc',
+        path:'syc',
         status:1,
         create_time :'2021-01-30',
         create_user : '系统管理员'
@@ -49,7 +49,7 @@ const system = [
         system_code : "LSM",
         menu_id:5,
         icon:'',
-        path:'s_lsm',
+        path:'lsm',
         status:1,
         create_time :'2021-01-30',
         create_user : '系统管理员'
