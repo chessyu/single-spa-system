@@ -13,7 +13,7 @@ export default{
             name: "首页", 
             active:true,
             isSonSys:false,
-            routerPath:'/crm/index'
+            routerPath:'/CRM/index'
         }
     ],
     userData:{},            //登录人的个人数据

@@ -223,6 +223,9 @@ export default{
 </script>
 
 <style lang="less" >
+.card_content{
+    text-align: center;
+}
 .pcCard{
     background: #fff;
 }

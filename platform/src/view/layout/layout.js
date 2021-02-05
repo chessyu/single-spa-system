@@ -44,7 +44,7 @@ export default {
     this.initViewPort();
     this.sonSystemAction();
     this.getChildrenModel();               //取权限下的子系统数据
-    //this.initRouter(); //初始化 绑定所有子系统的路由到平台路由下
+    this.initRouter(); //初始化 绑定所有子系统的路由到平台路由下
   },
   methods: {
     //初始化 绑定所有子系统的路由到平台路由下
@@ -228,7 +228,7 @@ export default {
         let routerPath = "/"+path.split('_').join('/');
 
         this.getLayoutTag.push({
-          name: event.currentTarget.getAttribute("title"),
+          name: event.currentTarget.getAttribute("title") || event.currentTarget.innerText,
           path:  path,
           index: this.getLayoutTag.length,
           active:true,
@@ -485,10 +485,24 @@ export default {
             singleSpa.unloadApplication(singleName[i], {waitForUnmount: false})
           }
         }
-        if(_this.childrenSysData.includes("CCP")){
+        // console.log(_this.sonSystem,"aaaaaaa")
+        // _this.sonSystem.map(item => {
+        //   singleSpa.registerApplication(
+        //     item.systemName,
+        //     () => window.System.import(item.code), 
+        //     // () => window.System.import(ccp),                //通过缓存拉取子项目的依赖。
+        //     location =>  true ,
+        //     {"customProps":{
+        //       "token": Cookies.get("Admin-Token"),
+        //       "cacheData":_this.getCacheData
+        //     }}
+        //   );
+        // })
+
+        if(_this.childrenSysData.includes("ORM")){
           singleSpa.registerApplication(
             '中控平台',
-            () => window.System.import('CCP'), 
+            () => window.System.import('ORM'), 
             // () => window.System.import(ccp),                //通过缓存拉取子项目的依赖。
             location =>  true ,
             {"customProps":{
@@ -497,42 +511,19 @@ export default {
             }}
           );
         }
-        
-        if(_this.childrenSysData.includes("GAP")){
-          singleSpa.registerApplication(
-            '嗨嗨游平台',
-            () => window.System.import('GAP'),
-            location => true,
-            {"customProps":{
-              "token": Cookies.get("Admin-Token"),
-              "cacheData":_this.getCacheData
-            }}
-          );
-        }
-        if(_this.childrenSysData.includes("OAP")){
-          singleSpa.registerApplication(
-            '运营分析平台',
-            () => window.System.import('OAP'), 
-            location => true,
-            {"customProps":{
-              "token": Cookies.get("Admin-Token"),
-              "cacheData":_this.getCacheData
-            }}
-          );
-        }
 
-        if(_this.childrenSysData.includes("IP")){
-          singleSpa.registerApplication(
-            '发行平台',
-            () => window.System.import('IP'),
-            location => true,
-            {"customProps":{
-              "token": Cookies.get("Admin-Token"),
-              "cacheData":_this.getCacheData
-            }}
-          );
-        }
-
+        // if(_this.childrenSysData.includes("CCP")){
+        //   singleSpa.registerApplication(
+        //     '中控平台',
+        //     () => window.System.import('CCP'), 
+        //     // () => window.System.import(ccp),                //通过缓存拉取子项目的依赖。
+        //     location =>  true ,
+        //     {"customProps":{
+        //       "token": Cookies.get("Admin-Token"),
+        //       "cacheData":_this.getCacheData
+        //     }}
+        //   );
+        // }
         singleSpa.start();
       })
     },

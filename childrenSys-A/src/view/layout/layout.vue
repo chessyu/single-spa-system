@@ -128,9 +128,8 @@
   // background: url('../../../public/images/ocean.jpg');
   & .layout {
     height: 100%;
-    flex-direction: row;
     & .ivu-layout-header {
-      background: var(--themeBackColor);
+      background: #fff;
       padding: 0 10px;
     }
   }

@@ -5,6 +5,21 @@ const path = require('path');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const notifier = require('node-notifier');
 
+///获取本机ip///
+const os = require('os');
+function getIPAdress() {
+    var interfaces = os.networkInterfaces();
+    for (var devName in interfaces) {
+        var iface = interfaces[devName];
+        for (var i = 0; i < iface.length; i++) {
+            var alias = iface[i];
+            if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+                return alias.address;
+            }
+        }
+    }
+}
+const myHost = getIPAdress();
 
 module.exports = {
     devtool:'source-map',
@@ -39,7 +54,7 @@ module.exports = {
         new FriendlyErrorsWebpackPlugin({
             compilationSuccessInfo: {
                 messages: [`- Your application is running here:  http://localhost:2000`],
-                notes: [`- network: http://本机ip: 2000`]
+                notes: [`- network: http://${myHost}: 2000`]
             },
             onErrors: function(severity, errors){
                 if (severity !== 'error') {

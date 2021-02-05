@@ -75,14 +75,14 @@
                 <Icon class="mc_icon" :type="item.icon"></Icon>
                 <ul class="mc_children-item">
                   <template v-for="(key,i) in item.children" >
-                    <router-link   :key="i" :class="['mc_children-li', menuDefaultActive == key.path ? 'mc_children-li-active':'']" tag="li" :to="key.path" :pathName="key.component" :name="key.component" v-if="key.children.length == 0">
+                    <router-link   :key="i" :class="['mc_children-li', menuDefaultActive == key.component ? 'mc_children-li-active':'']" tag="li" :to="key.path" :pathName="key.component" :name="key.component" v-if="key.children.length == 0">
                       <span class="mc_span" @click="openMenuItem(key.component)">{{key.title}}</span>
                     </router-link>
                     <li v-else :key="i" class="mc_children-li mc_hasChildren" :pathName="key.component">
                         <span  class="mc_span">{{key.title}}</span>
                         <Icon type="ios-arrow-forward" style="position: absolute;right: 0;top: 15px;"/>
                         <ul class=" mc_child-child-ul">
-                          <router-link v-for="(m,n) in key.children"  :key="n" :class="['mc_children-li', menuDefaultActive == m.path ? 'mc_children-li-active':'']" tag="li" :to="m.path" :pathName="m.component" :name="m.component" >
+                          <router-link v-for="(m,n) in key.children"  :key="n" :class="['mc_children-li', menuDefaultActive == m.component ? 'mc_children-li-active':'']" tag="li" :to="m.path" :pathName="m.component" :name="m.component" >
                             <span class="mc_span"  @click="openMenuItem(m.component)">{{m.title}}</span>
                           </router-link>
                         </ul>
@@ -92,7 +92,7 @@
               </div>
             </div>
           </Sider>
-          <Content class="ht__router-view" id="showView">
+          <Content class="ht__router-view" >
           <div class="content_tag">
               <div class="tag_icon-left tag_icon" v-show="showIcon" @click="ckLeft">
                 <Icon type="ios-arrow-back top_icon" />
@@ -136,7 +136,9 @@
                 </DropdownMenu>
               </Dropdown>
             </div>
-            <keep-alive :include="getCacheTemplate"><router-view /></keep-alive>
+            <Content id="showView">
+              <keep-alive  :include="getCacheTemplate"><router-view /></keep-alive>
+            </Content>
           </Content>
       </Layout>
     </Layout>
@@ -301,6 +303,8 @@
       padding:10px;
       background:#f5f5f5;
       height: 100%;
+      display: flex;
+      flex-direction: column;
      & .content_tag {
         // padding: 5px 10px;
         // max-width: calc(100% - 40px);
@@ -377,8 +381,8 @@
           border-radius: 5px;
         }
         & .c_tag__active {
-          background: var(--themColorS) !important;
-          color: var(--fontBaseColor) !important;
+          background:  linear-gradient(90deg,var(--themColor), var(--themColorT), var(--themColorS)) !important;
+          color: var(--noActiveColor) !important;
           & span:nth-child(1) {
             background: var(--activeColor) !important;
             width: 10px;
