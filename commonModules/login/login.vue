@@ -11,12 +11,15 @@
           <div  class="me-login">
             <Form class="form" ref="formInline" :model="formInline" :rules="ruleInline" label-position="left">
                 <FormItem class="company_logo" >
-                    <img src="../../assets/img/login-h.png" alt="" v-show="logType == 'default'">
-                    <img src="../../assets/img/login-n.png" alt="" v-show="logType == 'focusUserName'">
-                    <img src="../../assets/img/login-p.png" alt="" v-show="logType == 'focusPassword'">
+                    <img src="../assets/img/login-h.png" alt="" v-show="logType == 'default'">
+                    <img src="../assets/img/login-n.png" alt="" v-show="logType == 'focusUserName'">
+                    <img src="../assets/img/login-p.png" alt="" v-show="logType == 'focusPassword'">
                 </FormItem>
                 <FormItem>
-                    <div class="comp_text">{{systemCofig.systemName}}</div>
+                    <div class="comp_text">
+                        <Icon class="logo" custom="iconfont icon-logo_ysstech"  style="font-size:30px"/>
+                        <span class="logo_name">Administration</span>
+                    </div>
                 </FormItem>
                 <FormItem prop="user">
                     <Input prefix="ios-contact" v-model="formInline.user"  placeholder="请输入账号" @on-focus="focusUserName" @on-blur="blur"/>
@@ -26,7 +29,10 @@
                 </FormItem>
                 <FormItem prop="verCode">
                     <Input prefix="md-photos" type="text" style="width:60%;" v-model="formInline.verCode"  placeholder="请输入验证码" @on-focus="focusUserName" @on-blur="blur"/>
-                    <img :src="verCode" alt="" class="verCodeImg" @click="getVerCode">
+                    <!-- <img :src="verCode" alt="" class="verCodeImg" @click="getVerCode"> -->
+                    <span class="verCodeImg" @click="getVerCode" v-html="verCode">
+                       
+                    </span>
                 </FormItem>
                 <FormItem label="记住密码">
                     <i-switch class="rem-switch" v-model="remember" ></i-switch>
@@ -43,7 +49,7 @@
   </div>
 </template>
 
-<script src="./login"></script>
+<script src="./login.js"></script>
 
 <style lang='less' scoped>
 .ht__login-box {
@@ -71,8 +77,9 @@
 }
 .login-title::after {
     content: "";
-    background: url("../../assets/img/dark-logs-bg.jpg") no-repeat;
+    background: url("../assets/img/dark-logs-bg.jpg") no-repeat;
     animation: rotate 40s 0s ease both infinite;
+    background-size: 100% 100%;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -170,14 +177,15 @@
     float: right;
 }
 .login-bottom{
-    background: linear-gradient(90deg, #1d42ab, #2173dc, #1e93ff);
+    background: linear-gradient(90deg,var(--themColor), var(--themColorT), var(--themColorS));
     color: #fff;
     text-align: center;
     cursor: pointer;
     position: relative;
+    border-radius: 3px;
 }
 .login-bottom:hover{
-    background: linear-gradient(90deg, #3254b1, #317cdf, #42a4ff);
+    opacity: .9;
 }
 @keyframes wave {
     0%{
@@ -204,11 +212,11 @@
 }
 .comp_text{
     text-align: center;
-    font-size: 23px;
+    font-size: 21px;
     font-weight: bold;
     font-family: cursive;
     transition: all 1s ease;
-    background-image: linear-gradient(15deg,#009688,blue,red);
+    background-image: linear-gradient(15deg,var(--themColor), var(--themColorT), var(--themColorS));
     color: transparent !important;
     -webkit-background-clip: text;
 }

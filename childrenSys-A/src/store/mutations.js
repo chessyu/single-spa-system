@@ -12,3 +12,13 @@ export const setUserButtomPower = (state,info) => {
 export const setViewPort = (state,info) => {
     state.viewport = info;
 }
+
+//刷新layout已开标签参数
+export const setLayoutTag = (state,info) => {
+    state.layoutTag = info
+}
+
+// 修改系统配置数据
+export const setSysConfig = function(state, info){
+    state.sysConfig = info;
+}

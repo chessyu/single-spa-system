@@ -6,13 +6,13 @@ import store from '@/store/index.js'
 import publicComponentUi from 'public-component-ui'
 import ViewUI from 'view-design'
 import ECharts from 'vue-echarts'
-import Plugin from '@/assets/Plugin/index.js'
+import Plugin from '../../commonModules/assets/Plugin/index.js'
 import buttomPower from '@/directive'
 
 import 'public-component-ui/lib/public-component-ui.css'
-import '@/assets/less/index.less'
+import '../../commonModules/assets/less/index.less'
 import './assets/font/iconfont.css'
-import '@/assets/less/setTheme'
+import '../../commonModules/assets/less/setTheme'
 import 'echarts/theme/macarons'
 
 Vue.use(ViewUI);

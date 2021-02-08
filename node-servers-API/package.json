@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "./node_modules/.bin/nodemon app.js"
+    "serve": "./node_modules/.bin/nodemon app.js",
+    "build":"gulp"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "gulp": "^4.0.2",
     "jsonwebtoken": "^8.5.1",
     "koa-session": "^6.0.0",
     "nodemon": "^2.0.4",

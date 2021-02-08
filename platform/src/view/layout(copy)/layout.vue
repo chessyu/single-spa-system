@@ -136,7 +136,7 @@
                 </DropdownMenu>
               </Dropdown>
             </div>
-            <Content id="showView">
+            <Content class="system_view" id="showView">
               <keep-alive  :include="getCacheTemplate"><router-view /></keep-alive>
             </Content>
           </Content>
@@ -203,14 +203,14 @@
       }
       & .ht_changeSys{
         position: absolute;
-        left: 900px;
+        right: 290px;
         color:var(--fontBaseColor);
         cursor: pointer;
         & .ht_division{
           display: inline-block;
           margin-left: 10px;
-          color: var(--fontColor);
-          font-size: 10px;
+          color: var(--borderColor);
+          font-size: 18px;
         }
       }
     }
@@ -249,7 +249,7 @@
                 transform: all .3s ease;
                 text-align: left;
                 .mc_children-li{
-                  color: #515a6e;
+                  color: var(--fontColor);
                   cursor: pointer;
                   .mc_span{
                     display: inline-block;
@@ -389,6 +389,9 @@
           }
         }
       }
+     & .system_view{
+       overflow-y:auto;
+     } 
     }
 
 /*** 菜单自定义开始 */

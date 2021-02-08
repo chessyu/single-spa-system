@@ -13,7 +13,7 @@ import buttomPower from 'public-component-ui/utils/directive'
 
 import '@/assets/less/index.less'
 // import 'view-design/dist/styles/iview.css';
-import '@/assets/less/setTheme'
+import '@/assets/less/setTheme.js'
 Vue.use(ViewUI);
 
 

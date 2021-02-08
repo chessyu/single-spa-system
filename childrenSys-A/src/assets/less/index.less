@@ -1,3 +1,5 @@
+
+
 html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {
     margin: 0;
     padding: 0;
@@ -145,7 +147,7 @@ b, em, i {
 
 @keyframes goMove{
     0%{
-        transform: translateX(200px);
+        transform: translateX(100px);
         opacity: 0;
     }
     100%{
@@ -162,7 +164,7 @@ b, em, i {
     .ht_content-view{
         width: 99%;
         height: 100%;
-        padding: 10px;
+        padding: 0 15px;
         //查询条件块样式
         .ht__query-box{
             // background: #fff;
@@ -173,14 +175,19 @@ b, em, i {
             & .form__style{
                 display: flex;
                 flex-flow: wrap;
-                justify-content: space-between;
+                // justify-content: space-between;
                 position: relative;
             }
             & .form_item{
-                min-width: 300px;
-                max-width: 400px;
+                min-width: 395px;
+                max-width: 399px;
                 margin: 0 10px 10px 0;
                 flex: 1;
+                & label{
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
             }
             & .form-buttom > div{
                 float: right;
@@ -204,9 +211,9 @@ b, em, i {
                 // height: calc(100% - 32px);
             }
             .page{
-                text-align: center;
+                text-align: right;
                 position: relative;
-                top: -5px;
+                top: 10px;
                 background: #fff;
                 z-index: 5;
             }
@@ -216,11 +223,27 @@ b, em, i {
             }
             & .buttonGroup{
                 margin-bottom: 15px;
+                min-height: 25px;
                 .moer_icon{
                     font-size: 15px;
                     float: left;
                     position: relative;
                     top: 2px;
+                }
+                .buttom_handler{
+                    float: right;
+                    .bh_group{
+                        max-height: 250px;
+                        overflow-y: auto;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 10px 0 0 10px;
+                        min-width: 150px;
+                        .bh_checkbox{
+                            flex: 1;
+                            text-align: left;
+                        }
+                    }
                 }
             }
         }
@@ -229,18 +252,57 @@ b, em, i {
     .view-flex{
         display: flex;
         .box_left{
-            width: 300px;
             padding: 20px;
-            border-right: 1px solid #ccc;
+            border-right: 1px solid #f1f1f1;
         }
         .box_right{
             flex: 1;
             width: calc(100% - 300px);
-            padding: 10px;
+            padding: 0 0 0 15px;
+            // height: 100%;
+            // padding: 0 10px;
         }
     }
 }
+//下拉列表时 显示key , value 样式
+.selectLi{
+    display:flex;
+    .selectLabel{
+        width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .selectValue{
+        flex: 1;
+        text-align: right;
+        color:#ccc;
+        padding-right: 9px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
 
+.treeHeight{
+    overflow-y: auto;
+    max-height: 370px;
+    .ivu-tree{
+        width: 720px;
+    }
+}
+
+//弹层时 控件样式
+.formItem{
+    display: flex;
+    flex-wrap: wrap;
+    .itemWidth{
+        width: 50%;
+    }
+    .itemRemark{
+        width: 100%;
+    }
+}
 
 .layout__collapsible .ivu-icon-ios-arrow-down{
     float: right;
@@ -283,13 +345,20 @@ b, em, i {
     display: none;
 }
 
+.ivu-alert-message{
+    padding-left: 20px;
+}
 
+.ivu-modal-content{
+    max-height: 800px;
+    overflow-y: auto;
+}
 
 
 // 处理iview 菜单小图标不可旋转问题
 .ivu-menu-vertical .ivu-menu-opened>*>.ivu-menu-submenu-title-icon{
     transform: translateY(-50%) rotate(180deg);
-    margin-top: 11px;
+    margin-top: 5px;
 }
 // 提示框垂直居中
 .vertical-center-modal{
@@ -302,5 +371,31 @@ b, em, i {
 }
 // 去除表头的背景颜色
 .ivu-table th{
-    background-color: #fff !important;
+    // background-color: #fff !important;
 }
+
+// 表格上的按钮自定义
+.buttonGroup > .ivu-btn{
+    margin: 0 2.5px !important;
+}
+
+.ivu-table-cell{
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+//table 选中行的背景色
+.ivu-table-row-highlight td, .ivu-table-stripe .ivu-table-body tr.ivu-table-row-highlight:nth-child(2n) td, .ivu-table-stripe .ivu-table-fixed-body tr.ivu-table-row-highlight:nth-child(2n) td, tr.ivu-table-row-highlight.ivu-table-row-hover td{
+    background-color: #2db7f5 !important;
+    color:#fff;
+    .tableButtom{
+        color: #fff !important;
+    }
+}
+
+.title-seach .ivu-input{
+    border: none !important;
+    outline: none !important;
+    background:var(--borderColor) !important;
+}
+

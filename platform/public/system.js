@@ -5,7 +5,7 @@ const env = process.env.ENVPARA;
 //开发环境时的 systemjs 的配置
 let  systemjsImportmapDev = {
   "imports": {
-    "ORM":    "http://192.168.0.104:5004/script/main.bundle.js",
+    "ORM":    "http://10.0.120.255:5004/script/main.bundle.js",
     "single-spa": "/cdn/single-spa.js",
     "vue": "/cdn/vue.js",
     "vue-router": "/cdn/vue-router.min.js"

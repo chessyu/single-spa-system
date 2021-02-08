@@ -13,13 +13,14 @@ export default[
     {
         path:'/login',
         name:'login',
-        component:() => import(/* webpackChunkName: "login" */ '@/view/login/login.vue')
+        component:() => import(/* webpackChunkName: "login" */ '../../../commonModules/login/login.vue')
     },
     {
-        path:'/layout',
+        path:'/layout:isMainFrame',
         name:'layout',
         redirect:'/CRM/index',
-        component:() => import(/* webpackChunkName: "layout" */ '@/view/layout/layout.vue'),
+        props:{isMainFrame : true},
+        component:() => import(/* webpackChunkName: "layout" */ '../../../commonModules/layout/layout.vue'),
         children:[
             {
                 path:'/CRM/index',

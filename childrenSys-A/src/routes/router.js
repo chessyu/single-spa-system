@@ -8,17 +8,18 @@ export default[
     {
         path:'/login',
         name:'login',
-        component:() => import(/* webpackChunkName: "login" */ '@/view/login/login.vue')
+        component:() => import(/* webpackChunkName: "login" */ '../../../commonModules/login/login.vue')
     },
     {
-        path:'/layout',
+        path:'/layout:isMainFrame',
         name:'layout',
+        props:{isMainFrame : systemConfig.systemMenuId},
         redirect:`/${systemConfig.systemCode}/index`,
-        component:() => import(/* webpackChunkName: "layout" */ '@/view/layout/layout.vue'),
+        component:() => import(/* webpackChunkName: "layout" */ '../../../commonModules/layout/layout.vue'),
         children:[
             {
                 path:`/${systemConfig.systemCode}/index`,
-                name:'ccpIndex',
+                name:`index`,
                 component:() => import(/* webpackChunkName: "ccpIndex" */ '@/view/home/index.vue')
             },
             {

@@ -31,16 +31,16 @@ module.exports = {
         headers: {
             'Access-Control-Allow-Origin': '*',
         },
-        // proxy:{
-        //     '/dev-api':{
-        //         target:'http://m2-dev.hhycdk.com',   //本地调试
-        //         changeOrigin:true,
-        //         ws:true,
-        //         pathRewrite: {
-        //             '/dev-api': '',//重写,
-        //         }
-        //     }
-        // }
+        proxy:{
+            '/dev-api':{
+                target:'http://localhost:2020',   //本地调试
+                changeOrigin:true,
+                ws:true,
+                pathRewrite: {
+                    '/dev-api': '',//重写,
+                }
+            }
+        }
     },
     
     plugins:[

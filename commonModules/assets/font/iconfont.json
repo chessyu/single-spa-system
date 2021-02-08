@@ -1,0 +1,128 @@
+{
+  "id": "2362752",
+  "name": "微前端管理",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1461914",
+      "name": "警察",
+      "font_class": "jingcha",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "1506559",
+      "name": "vip2",
+      "font_class": "vip2",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "1506572",
+      "name": "vip3",
+      "font_class": "vip3",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "1506573",
+      "name": "vip4",
+      "font_class": "vip4",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "1506600",
+      "name": "vip0",
+      "font_class": "vip0",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "2877860",
+      "name": "vip9",
+      "font_class": "vip9",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "2877862",
+      "name": "vip5",
+      "font_class": "vip5",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "2877864",
+      "name": "vip10",
+      "font_class": "vip10",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "2877865",
+      "name": "vip7",
+      "font_class": "vip7",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "2877866",
+      "name": "vip6",
+      "font_class": "vip6",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "2877867",
+      "name": "vip1",
+      "font_class": "vip1",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "2877868",
+      "name": "vip8",
+      "font_class": "vip8",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "2943053",
+      "name": "注册",
+      "font_class": "zhuce",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "3624933",
+      "name": "vip",
+      "font_class": "svip",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "9517149",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "1318184",
+      "name": "wunsun-logo",
+      "font_class": "wunsun-logo",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "15300933",
+      "name": "logo_ysstech",
+      "font_class": "logo_ysstech",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    }
+  ]
+}

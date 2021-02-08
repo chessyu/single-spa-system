@@ -13,3 +13,8 @@ export const setViewPort = (context,data) => {
     context.commit('setViewPort',data)
 }
 
+
+// 提交系统配置数据
+export const setSysConfig = function(context,data){
+    context.commit('setSysConfig',data)
+}
