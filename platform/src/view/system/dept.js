@@ -1,6 +1,6 @@
 import { PA_getDeptData, PA_deleteDept } from '@/api/system/dept.js'
-import { fixedTableHeader, removeTableColumns } from '@/utils/help.js'
-import { formatTree,selectNodeList } from '@/utils/dataFormat.js'
+import { fixedTableHeader, removeTableColumns } from 'common/utils/help.js'
+import { formatTree,selectNodeList } from 'common/utils/dataFormat.js'
 import deptAdd from '@/component/system/deptAdd.vue'
 import { mapGetters } from 'vuex'
 import customColumns from 'public-component-ui/utils/common/customColumns.vue'

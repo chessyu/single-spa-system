@@ -8,7 +8,7 @@ let  systemjsImportmapDev = {
     "ORM":    "http://10.0.120.255:5004/script/main.bundle.js",
     "single-spa": "/cdn/single-spa.js",
     "vue": "/cdn/vue.js",
-    "vue-router": "/cdn/vue-router.min.js"
+    "vue-router": "/cdn/vue-router.min.js" 
   }
 }
 
@@ -35,7 +35,7 @@ let systemjsImportmapDevIntranent = {
 //发包时 生产环境时的 systemjs 的配置
 let systemjsImportmapProd = {
   "imports": {
-    "ORM": "http://issue-dev.hhycdk.com/script/main.bundle.js",
+    "ORM": "http://120.79.143.23:2002/script/main.bundle.js",
     "single-spa": "/cdn/single-spa.js",
     "vue": "/cdn/vue.js",
     "vue-router": "/cdn/vue-router.min.js"

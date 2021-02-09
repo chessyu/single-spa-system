@@ -6,6 +6,9 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
     <meta name="importmap-type" content="systemjs-importmap">
     <!--injectjs-->
+    <script type="systemjs-importmap">
+        <%= systemJs %>
+    </script>
     <link rel="preload" href="/cdn/single-spa.js" as="script" crossorigin="anonymous" />
     <link rel="preload" href="/cdn/vue.js" as="script" crossorigin="anonymous" />
     <script src="/cdn/system.min.js"></script>

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "./node_modules/.bin/nodemon app.js",
+    "pm2Start":"pm2 start app.js",
     "build":"gulp"
   },
   "keywords": [],

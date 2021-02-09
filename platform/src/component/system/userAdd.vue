@@ -65,7 +65,7 @@
 
 <script>
 import {PA_postUserListAdd, PA_postUserListEdit, PA_getOrganizational,PA_getPostData, PA_getRoleData} from '@/api/system/user.js'
-import { formatTree } from '@/utils/dataFormat.js'
+import { formatTree } from 'common/utils/dataFormat.js'
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 import pinyin from 'pinyin'

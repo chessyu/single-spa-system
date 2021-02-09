@@ -3,7 +3,7 @@
 const path = require('path')
 const argv = require('yargs-parser')(process.argv.slice(2))
 const _mode =argv.mode || 'development';
-const webpackMode = (_mode == 'production' ? true : false)
+const webpackMode = (_mode == 'production')
 // const webpackMode = (_mode == 'development' ? true : false)
 const _mergeConfig = require(`./webpack.${_mode}.js`)
 const merge = require('webpack-merge')
@@ -14,10 +14,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin')
 const env = require(`./config/${process.env.ENVPARA}.env.js`)
-const rewriteEntryFile = require('./plugins/rewriteEntryFile')
+const RewriteEntryFile = require('./plugins/RewriteEntryFile.js')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const smp = new SpeedMeasurePlugin();
+const systemJs = require('../public/system.js')
 
 
 const webpackConfig = {
@@ -34,7 +35,8 @@ const webpackConfig = {
     resolve:{
         extensions:['.js','.jsx','.vue'],
         alias:{
-            '@':path.resolve(__dirname,'../src')
+            '@':path.resolve(__dirname,'../src'),
+            "common": path.resolve(__dirname,"../../commonModules")
         }
     },
     module:{
@@ -97,13 +99,16 @@ const webpackConfig = {
     plugins:[
         new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
-        new rewriteEntryFile(),
+        // new RewriteEntryFile(),
         new HtmlWebpackPlugin({
-            title:"海拓管理平台",
+            title:"系统管理平台",
             filename: 'index.html',
             template: path.resolve(__dirname,'../public/index.html'),
             minify:{
                 removeComments: false,
+            },
+            templateParameters:{
+                systemJs:JSON.stringify(systemJs)
             }
         }),
         new MiniCssExtractPlugin({

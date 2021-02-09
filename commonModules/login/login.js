@@ -8,8 +8,8 @@ export default{
     data(){
         return{
             formInline :{
-                user: '',
-                password: '',
+                user: 'admin',
+                password: '123456',
                 verCode:''
             },
             ruleInline : {

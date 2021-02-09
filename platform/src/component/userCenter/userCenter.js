@@ -1,6 +1,6 @@
 import {mapGetters,mapActions} from 'vuex'
 import {PA_getDeptData, PA_updateUserData, PA_updatePwd} from "@/api/userCenter.js"
-import { formatTree, childrenFindFatherTree } from '@/utils/dataFormat.js'
+import { formatTree, childrenFindFatherTree } from 'common/utils/dataFormat.js'
 
 
 export default{

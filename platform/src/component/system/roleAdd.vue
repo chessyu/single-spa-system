@@ -48,7 +48,7 @@
 
 <script>
 import { PA_postRoleEdit, PA_postRoleAdd, PA_getMenuList, PA_postRoleScope, PA_getDeptData, PA_getMenuRoles, PA_getDeptRoles } from '@/api/system/role.js'
-import { formatTree, selectNode } from '@/utils/dataFormat.js'
+import { formatTree, selectNode } from 'common/utils/dataFormat.js'
 export default{
     props:{
         showAdd:{

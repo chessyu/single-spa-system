@@ -1,6 +1,6 @@
 import { PA_getMenuList, PA_postMenuDelete } from '@/api/system/menu.js'
-import { formatTree, selectNodeList } from '@/utils/dataFormat.js'
-import { fixedTableHeader } from '@/utils/help.js'
+import { formatTree, selectNodeList } from 'common/utils/dataFormat.js'
+import { fixedTableHeader } from 'common/utils/help.js'
 import { mapGetters } from 'vuex'
 import menuAdd from '@/component/system/menuAdd.vue'
 import customColumns from 'public-component-ui/utils/common/customColumns.vue'

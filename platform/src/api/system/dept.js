@@ -1,29 +1,28 @@
-import request from '@/utils/require.js'
+import request from 'common/utils/require.js'
 
 
-const ENV_URL = process.env.ABP_URL;
 export const  PA_getDeptData= (data) =>
     request({
-        url:ENV_URL +'/dept/list',
+        url:'/dept/list',
         method:'post',
         data
     })
 export const PA_postDeptAdd = (data) =>
     request({ //新增
-        url:ENV_URL +'/dept/insert',
+        url:'/dept/insert',
         method:'post',
         data
     })
 export const PA_postDeptEdit = (data) =>
     request({  //修改
-        url:ENV_URL +'/dept/update',
+        url:'/dept/update',
         method:'post',
         data
     })
 
 export const PA_deleteDept = (data) =>
     request({ //删除
-        url:`${ENV_URL}/dept/delete`,
+        url:`/dept/delete`,
         method:'post',
         data
     })

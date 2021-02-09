@@ -1,5 +1,5 @@
 import { PA_getDictData,PA_getDictDataList, PA_postDictDelete } from '@/api/system/dictData.js'
-import { fixedTableHeader } from '@/utils/help.js'
+import { fixedTableHeader } from 'common/utils/help.js'
 import { mapGetters } from 'vuex'
 import dictAddData from '@/component/system/dictAddData.vue'
 import customColumns from 'public-component-ui/utils/common/customColumns.vue'

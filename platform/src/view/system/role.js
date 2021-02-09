@@ -1,5 +1,5 @@
 import { PA_getRoleData,PA_postRoleDelete } from '@/api/system/role.js'
-import { fixedTableHeader } from '@/utils/help.js'
+import { fixedTableHeader } from 'common/utils/help.js'
 import { mapGetters } from 'vuex'
 import roleAdd from '@/component/system/roleAdd.vue'
 import customColumns from 'public-component-ui/utils/common/customColumns.vue'

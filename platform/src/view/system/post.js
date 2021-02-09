@@ -1,5 +1,5 @@
 import { PA_getPostData, PA_postDelete } from '@/api/system/post.js'
-import { fixedTableHeader } from '@/utils/help.js'
+import { fixedTableHeader } from 'common/utils/help.js'
 import { mapGetters } from 'vuex'
 import postAdd from '@/component/system/postAdd.vue'
 import customColumns from 'public-component-ui/utils/common/customColumns.vue'

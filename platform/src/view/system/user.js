@@ -1,6 +1,6 @@
 import { PA_getOrganizational, PA_getUserList, PA_postUserListDelete, PA_resetUserPassword, PA_getRoleDetailData } from '@/api/system/user.js'
-import  { fixedTableHeader }  from '@/utils/help.js'
-import {childrenFindFatherTree,selectNodeList} from '@/utils/dataFormat.js'
+import  { fixedTableHeader }  from 'common/utils/help.js'
+import {childrenFindFatherTree,selectNodeList} from 'common/utils/dataFormat.js'
 import userAdd from '@/component/system/userAdd.vue'
 import {mapGetters} from 'vuex'
 import customColumns from 'public-component-ui/utils/common/customColumns.vue'

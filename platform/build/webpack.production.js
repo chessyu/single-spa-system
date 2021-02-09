@@ -10,18 +10,7 @@ const WebpackDeepScopeAnalysisPlugin = require('webpack-deep-scope-plugin').defa
 
 
 module.exports = {
-    //devtool:'source-map',
-    // devServer:{
-    //     host:'0.0.0.0',
-    //     port:5000,
-    //     hot:true,
-    //     historyApiFallback:true,
-    //     quiet: true,
-    //     disableHostCheck: true,
-    //     headers:{
-    //         'Access-Control-Allow-Origin': '*',
-    //     },
-    // },
+    devtool:'eval-source-map',
     optimization: {
         minimizer: [new TerserPlugin({
             cache: true, // 是否缓存
