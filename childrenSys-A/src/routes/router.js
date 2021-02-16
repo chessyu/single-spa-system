@@ -25,42 +25,42 @@ export default[
             {
                 path:`/${systemConfig.systemCode}/issueSystem/gameSys`,
                 name:`${systemConfig.systemCode}_issueSystem_gameSys`,
-                component:() => import(/* webpackChunkName: "gameSys" */ '@/view/issueSystem/gameSys.vue')
+                component:() => import(/* webpackChunkName: "gameSys" */ '@/view/A/a1.vue')
             },
             {
                 path:`/${systemConfig.systemCode}/issueSystem/channelSys`,
                 name:`${systemConfig.systemCode}_issueSystem_channelSys`,
-                component:() => import(/* webpackChunkName: "channelSys" */ '@/view/issueSystem/channelSys.vue')
+                component:() => import(/* webpackChunkName: "channelSys" */ '@/view/A/a2.vue')
             },
             {
                 path:`/${systemConfig.systemCode}/issueSystem/prefectureLink`,
                 name:`${systemConfig.systemCode}_issueSystem_prefectureLink`,
-                component:() => import(/* webpackChunkName: "prefectureLink" */ '@/view/issueSystem/prefectureLink.vue')
+                component:() => import(/* webpackChunkName: "prefectureLink" */ '@/view/A/a3.vue')
             },
             {
                 path:`/${systemConfig.systemCode}/issueSystem/channelLink`,
                 name:`${systemConfig.systemCode}_issueSystem_channelLink`,
-                component:() => import(/* webpackChunkName: "channelLink" */ '@/view/issueSystem/channelLink.vue')
+                component:() => import(/* webpackChunkName: "channelLink" */ '@/view/A/a4.vue')
             },
             {
                 path:`/${systemConfig.systemCode}/issueSystem/externalAccess`,
                 name:`${systemConfig.systemCode}_issueSystem_externalAccess`,
-                component:() => import(/* webpackChunkName: "externalAccess" */ '@/view/issueSystem/externalAccess.vue')
+                component:() => import(/* webpackChunkName: "externalAccess" */ '@/view/A/a5.vue')
             },
             {
                 path:`/${systemConfig.systemCode}/issueSystem/testEnv`,
                 name:`${systemConfig.systemCode}_issueSystem_testEnv`,
-                component:() => import(/* webpackChunkName: "testEnv" */ '@/view/issueSystem/testEnv.vue')
+                component:() => import(/* webpackChunkName: "testEnv" */ '@/view/A/a6.vue')
             },
             {
                 path:`/${systemConfig.systemCode}/issueSystem/payOrder`,
                 name:`${systemConfig.systemCode}_issueSystem_payOrder`,
-                component:() => import(/* webpackChunkName: "payOrder" */ '@/view/issueSystem/payOrder.vue')
+                component:() => import(/* webpackChunkName: "payOrder" */ '@/view/A/a7.vue')
             },
             {
                 path:`/${systemConfig.systemCode}/dataSystem/chatMonitor`,
                 name:`${systemConfig.systemCode}_dataSystem_chatMonitor`,
-                component:() => import(/* webpackChunkName: "chatMonitor" */ '@/view/dataSystem/chatMonitor.vue')
+                component:() => import(/* webpackChunkName: "chatMonitor" */ '@/view/A/a8.vue')
             },
         ]
     },
