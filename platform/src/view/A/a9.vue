@@ -1,15 +1,12 @@
 <template>
-    <div>
-        测试页面9999999999
-    </div>
+    <big-screen></big-screen>
 </template>
 
 <script>
+import BigScreen from '../../../../commonModules/components/bigScreen'
 export default {
-    
+    components:{
+        BigScreen
+    }
 }
 </script>
-
-<style lang="less" scoped>
-
-</style>

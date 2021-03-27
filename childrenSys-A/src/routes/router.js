@@ -3,7 +3,7 @@ import systemConfig from '../../systemConfig.json'
 export default[
     {
         path:'/',
-        redirect:'/layout'
+        redirect:'/login'
     },
     {
         path:'/login',

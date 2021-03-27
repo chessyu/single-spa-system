@@ -83,5 +83,10 @@ export default[
                 component: () => import(/* webpackChunkName: "structureConfig" */ '@/view/A/a10.vue')
             }
         ]
+    },
+    {
+        path:"/bigScreen",
+        name:"bigScreen",
+        component:()=> import(/* webpackChunkName: "bigScreen" */ '@/view/A/a9.vue')
     }
 ]

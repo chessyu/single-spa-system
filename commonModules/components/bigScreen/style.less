@@ -1,0 +1,64 @@
+
+// #246bf7 #172176
+
+@media screen and(max-width:1921px){
+    html{
+        font-size:100px;
+    }
+}
+@media screen and(min-width:1921px){
+    html{
+        font-size:200px;
+    }
+}
+
+.default{
+    .container-box{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .container-title{
+            padding: 0 15px;
+            height:.9rem;background: url("../../assets/img/iframe/office_efficiency_header_bg.png")no-repeat center center;background-size: 100% 100%;
+            & .title-info{
+                height: 0.48rem;
+                color: #03C2EC;
+                text-align: center;
+                font-size: 24px;
+                font-family: 'cuhei';
+                font-weight: 600;
+                line-height: .48rem;
+                vertical-align: middle;
+            }
+            & .title-left{
+                vertical-align:middle;font-size: 20px;
+                font-weight: 600;
+                background-image: linear-gradient(#D8AE22, #DC9546);
+                -webkit-background-clip: text;-webkit-text-fill-color: transparent;
+                -webkit-animation: hue 60s infinite linear;
+            }
+            & .title-date{
+                font-size: 15px;
+                color: #fff;
+                text-align: right;
+            }
+        }
+        .rowBgk{
+            background: #22284A;
+            flex:1;
+            & .panel{
+                height: 3.7rem;
+                margin: .05rem .1rem .2rem .1rem;
+                border-radius: .08rem;
+                background-color: #181C41;
+            }
+            & .panel-footer{
+                height: 100%;
+                margin: 0px .1rem .05rem .1rem;
+                border-radius: .08rem;
+                background-color: #181C41;
+            }
+        }
+    }
+}

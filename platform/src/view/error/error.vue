@@ -28,11 +28,13 @@ export default{
     created(){
         
     },
-    
+    // mounted(){
+    //     debugger
+    // },
     beforeRouteEnter (to,form,next){
         let systemType = to.path.split('/')[1]
-        if(systemType !== "ABP"){
-            window.location.href = "/layout"
+        if(systemType !== "CRM" ){
+            window.location.href = "/CRM/index"
         }else{
             next();
         }

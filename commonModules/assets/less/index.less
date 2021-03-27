@@ -126,6 +126,21 @@ b, em, i {
 //     scrollbar-track-color:#eeeeee;/*背景颜色*/
 // }
 
+/*滚动条样式*/
+::-webkit-scrollbar {width: 6px;height:6px;}
+::-webkit-scrollbar-track-piece{background-color: #eee;margin: -2px;}
+::-webkit-scrollbar-thumb{background: #aaa;min-height: 150px;min-width: 150px;border-radius: 10px;}
+::-webkit-scrollbar-thumb:vertical:hover{background: #555555}
+::-webkit-scrollbar-thumb:horizontal:hover{background: #555555}
+
+/* scrolltext */
+.scrolltext{padding-top: 35px;width:90%;height:100%;overflow:hidden;margin:20px auto 0 auto;}
+.scrolltext ol li{cursor:pointer;padding-left:7px;width:570px;height:25px;font-size:13px;line-height:25px;border-bottom:2px solid #fff;}
+.scrolltext ol li a{color:#6f746e;display:inline;width:570px;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow: hidden;}
+.scrolltext ol li a:hover{color:#1990FF;text-decoration:none;}
+.scrolltext .part{width:100%;padding-top:20px;}
+.scrolltext .part span{margin-left:26px;cursor:pointer;}
+
 /******************************************内容区定制*********************************************************/
 
 

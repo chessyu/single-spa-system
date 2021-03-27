@@ -1,6 +1,6 @@
 import systemStting from '@/component/systemStting/systemStting.vue'
 import Cookies from 'js-cookie'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { PA_getMenuList, PA_getChildrenModel } from '../api/layout.js'
 import SystemConfig from '../config'
 
@@ -46,6 +46,7 @@ export default {
     this.layoutTag = this.getLayoutTag;
     this.initViewPort();
     this.sonSystemAction();
+
     if(this.isMainFrame.toString() === "true"){
       this.getChildrenModel();               //取权限下的子系统数据
       this.initRouter(); //初始化 绑定所有子系统的路由到平台路由下
@@ -84,7 +85,6 @@ export default {
     },
     //解决 切换子系统 刷新时的处理
     sonSystemAction(){
-
       if(!this.getSysConfig.keepAliveTag){  //当全局配置保留新开标签
         //刷新重定向 平台首页，并选中
         this.layoutTag = this.getLayoutTag.filter(e => {
@@ -99,12 +99,12 @@ export default {
         })
       }else{
         let action = this.getLayoutTag.filter(e => e.active == true);
-        if(action[0].isSonSys){
+        // if(action[0].isSonSys){
           this.$router.push({"name":"index"});
           this.$nextTick(e => {
             this.TagActive("index")
           })
-        }
+        // }
       }
     },
     //获取默认选中的系统菜单数据
@@ -618,6 +618,7 @@ export default {
         this.local = [];
       }
     },
+    ...mapMutations(['editRouterConfig'])
   },
   computed: {
     menuitemClasses() {

@@ -14,7 +14,7 @@
           size="20"
         ></Icon>
         <Input prefix="ios-search" placeholder="搜索菜单" class="title-seach" />
-        <Dropdown trigger="click" class="ht_changeSys" @on-click="selectSetem">
+        <Dropdown trigger="click" class="ht_changeSys" @on-click="selectSetem" v-if="isMainFrame.toString() == 'true'">
             {{currentSystem.systemName}}
             <Icon type="ios-repeat" size="20" />
             <span class="ht_division">|</span>
@@ -391,6 +391,7 @@
       }
      & .system_view{
        overflow-y:auto;
+       background: #fff;
      } 
     }
 
