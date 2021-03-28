@@ -41,10 +41,13 @@ export default {
       local:[],                                    //缓存操作的dom
     };
   },
+  beforeMount(){
+    this.initViewPort();
+  },
   mounted() { 
     //绑定缓存中已开标签数据
     this.layoutTag = this.getLayoutTag;
-    this.initViewPort();
+    
     this.sonSystemAction();
 
     if(this.isMainFrame.toString() === "true"){
@@ -566,10 +569,7 @@ export default {
     initViewPort(){
       let _this = this;
       if(document.body.clientWidth < 1024) this.isCollapsed = true;
-      this.$store.commit("setViewPort",{
-        width:document.body.clientWidth,
-        height:document.body.clientHeight
-      })
+
       window.onresize=function(){  
         var Width = window.innerWidth//浏览器窗口的内部宽度（包括滚动条）
                         || document.documentElement.clientWidth
@@ -581,6 +581,7 @@ export default {
           width:Width,
           height:Height
         })
+        
         if(Width < 1024){
           _this.isCollapsed = true;
         }else{

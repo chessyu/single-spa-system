@@ -381,7 +381,7 @@
           border-radius: 5px;
         }
         & .c_tag__active {
-          background:  linear-gradient(90deg,var(--themColor), var(--themColorT), var(--themColorS)) !important;
+          background:  linear-gradient(120deg,var(--themColor), var(--themColorT), var(--themColorS)) !important;
           color: var(--noActiveColor) !important;
           & span:nth-child(1) {
             background: var(--activeColor) !important;
@@ -391,7 +391,9 @@
       }
      & .system_view{
        overflow-y:auto;
+       overflow-x: hidden;
        background: #fff;
+       height: 100%;
      } 
     }
 

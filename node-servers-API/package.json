@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "serve": "./node_modules/.bin/nodemon app.js",
-    "pm2Start":"pm2 start app.js",
-    "build":"gulp"
+    "pm2Start": "pm2 start app.js",
+    "build": "gulp"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "gulp": "^4.0.2",
     "jsonwebtoken": "^8.5.1",
     "koa-session": "^6.0.0",
+    "mockjs": "^1.1.0",
     "nodemon": "^2.0.4",
     "svg-captcha": "^1.4.0"
   }

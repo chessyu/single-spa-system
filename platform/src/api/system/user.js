@@ -10,7 +10,7 @@ export const PA_getOrganizational = (data) =>
 
 export const PA_getUserList = (data) =>
     request({  //获取组织下的所有用户
-        url:'/user/list',
+        url:'/getUserInfo',
         method:'post',
         data
     })

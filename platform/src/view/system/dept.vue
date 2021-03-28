@@ -13,7 +13,7 @@
                         </Select>
                     </FormItem>
                     <FormItem  class="form_item">
-                        <Button type="primary" @click="query">查询</Button>
+                        <Button type="primary" @click="query">查询</Button> 
                     </FormItem>
                 </Form>
             </div>

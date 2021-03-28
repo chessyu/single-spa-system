@@ -129,9 +129,9 @@ b, em, i {
 /*滚动条样式*/
 ::-webkit-scrollbar {width: 6px;height:6px;}
 ::-webkit-scrollbar-track-piece{background-color: #eee;margin: -2px;}
-::-webkit-scrollbar-thumb{background: #aaa;min-height: 150px;min-width: 150px;border-radius: 10px;}
-::-webkit-scrollbar-thumb:vertical:hover{background: #555555}
-::-webkit-scrollbar-thumb:horizontal:hover{background: #555555}
+::-webkit-scrollbar-thumb{background: var(--themColorS);min-height: 150px;min-width: 150px;border-radius: 10px;}
+::-webkit-scrollbar-thumb:vertical:hover{background: var(--themColor)}
+::-webkit-scrollbar-thumb:horizontal:hover{background: var(--themColor)}
 
 /* scrolltext */
 .scrolltext{padding-top: 35px;width:90%;height:100%;overflow:hidden;margin:20px auto 0 auto;}
@@ -184,26 +184,27 @@ b, em, i {
         .ht__query-box{
             // background: #fff;
             padding: 20px 0 0 !important;
+            width: 100%;
             // border-radius: 5px;
             // overflow: hidden;
             // box-shadow: 1px 1px 10px 1px var(--borderColor);
-            & .form__style{
-                display: flex;
-                flex-flow: wrap;
-                // justify-content: space-between;
-                position: relative;
-            }
-            & .form_item{
-                min-width: 395px;
-                max-width: 399px;
-                margin: 0 10px 10px 0;
-                flex: 1;
-                & label{
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                }
-            }
+                // & .form__style{
+                //     display: flex;
+                //     flex-flow: wrap;
+                //     // justify-content: space-between;
+                //     position: relative;
+                // }
+                // & .form_item{
+                //     min-width: 395px;
+                //     max-width: 399px;
+                //     margin: 0 10px 10px 0;
+                //     flex: 1;
+                //     & label{
+                //         overflow: hidden;
+                //         white-space: nowrap;
+                //         text-overflow: ellipsis;
+                //     }
+                // }
             & .form-buttom > div{
                 float: right;
                 width: 120px;
@@ -219,7 +220,7 @@ b, em, i {
         }
         //表格样式
         .sys__table{
-            margin-top: 10px;
+            flex: 1;
             // height: calc(100% - 88px);
             .table{
                 width: 100%;
@@ -227,10 +228,9 @@ b, em, i {
             }
             .page{
                 text-align: right;
-                position: relative;
-                top: 10px;
                 background: #fff;
                 z-index: 5;
+                padding:10px 0 5px;
             }
             .tableButtom{
                 color:#409eff;
@@ -261,11 +261,26 @@ b, em, i {
                     }
                 }
             }
+            & .table-button{
+                cursor: pointer;
+                display: inline-block;
+                padding: 0 5px;
+            }
+            .table-button:hover{
+                opacity: 0.7;
+            }
+            .edit{
+                color:var(--themColorS);
+            }
+            .deleted{
+                color:#ed4014;
+            }
         }
     }
     //页面分块
     .view-flex{
         display: flex;
+        flex-direction: column;
         .box_left{
             padding: 20px;
             border-right: 1px solid #f1f1f1;
@@ -414,3 +429,6 @@ b, em, i {
     background:var(--borderColor) !important;
 }
 
+.sys__table .ivu-table-column-center{
+    text-align: center !important;
+}
