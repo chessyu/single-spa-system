@@ -15,7 +15,7 @@ let  systemjsImportmapDev = {
 //发包时 测试外网环境时的 systemjs 的配置
 let  systemjsImportmapDevExtranet = {
   "imports": {
-    "ORM": "http://issue-dev.hhycdk.com/script/main.bundle.js",
+    "ORM": "http://xxx.xxx.xxx/script/main.bundle.js",
     "single-spa": "/cdn/single-spa.js",
     "vue": "/cdn/vue.js",
     "vue-router": "/cdn/vue-router.min.js"
@@ -25,7 +25,7 @@ let  systemjsImportmapDevExtranet = {
 //发包时 测试内网环境时的 systemjs 的配置
 let systemjsImportmapDevIntranent = {
   "imports": {
-    "ORM": "http://10.10.10.139:8083/script/main.bundle.js",
+    "ORM": "http://xx.xx.xxx.xxxx:8083/script/main.bundle.js",
     "single-spa": "/cdn/single-spa.js",
     "vue": "/cdn/vue.js",
     "vue-router": "/cdn/vue-router.min.js"
@@ -35,7 +35,7 @@ let systemjsImportmapDevIntranent = {
 //发包时 生产环境时的 systemjs 的配置
 let systemjsImportmapProd = {
   "imports": {
-    "ORM": "http://120.79.143.23:2002/script/main.bundle.js",
+    "ORM": "http://xxx.xxx.xxx.xxx:2002/script/main.bundle.js",
     "single-spa": "/cdn/single-spa.js",
     "vue": "/cdn/vue.js",
     "vue-router": "/cdn/vue-router.min.js"

@@ -10,7 +10,7 @@
 		<Row class="rowBgk">
 			<Col span="6"  >
 				<div class="panel panel-left">
-
+					
 				</div>
 			</Col>
 			<Col span="12" >
@@ -25,17 +25,17 @@
 			</Col>
 		</Row>
 		<Row  class="rowBgk">
-			<Col span="8"  >
+			<Col span="8" class="footer-marign-10" >
 				<div class="panel-footer panel-left">
 
 				</div>
 			</Col>
-			<Col span="8" >
+			<Col span="8"  class="footer-marign-10">
 				<div class="panel-footer panel-left">
 
 				</div>
 			</Col>
-			<Col span="8" >
+			<Col span="8"  class="footer-marign-10">
 				<div class="panel-footer panel-left">
 
 				</div>

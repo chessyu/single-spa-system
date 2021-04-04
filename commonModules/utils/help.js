@@ -7,9 +7,6 @@
  * @param {*} obj  vue 当前实例
  */
   export function fixedTableHeader(newVal,_this){
-    // try{
-      
-    // }catch(err){}
     var boxHeight = _this.$refs.sys__table.offsetHeight;
     var sumHeight = 5;
     for(var i =0; i<_this.$refs.sys__table.childElementCount; i++){
