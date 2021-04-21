@@ -65,7 +65,7 @@ export default[
             {
                 path:'/CRM/system/userCenter',
                 name:'userCenter',
-                component: () => import(/* webpackChunkName: "userCenter" */ '@/component/userCenter/userCenter.vue')
+                component: () => import(/* webpackChunkName: "userCenter" */ '../../../commonModules/components/userCenter/userCenter.vue')
             },
             {
                 path:'/CRM/system/report',

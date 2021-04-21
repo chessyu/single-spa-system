@@ -5,7 +5,7 @@
                  <Card bordered class="userData">
                     <p slot="title">个人信息</p>
                     <div  class="userHeader">
-                        <img src="@/assets/img/header.gif" alt="">
+                        <img src="../../assets/img/header.jpg" alt="">
                         <!-- <Upload
                             :on-error="loaderError"
                             :on-success="loaderSuccess"
@@ -161,13 +161,16 @@
         }
     }
     .login-bottom{
-        background: linear-gradient(90deg, #1d42ab, #2173dc, #1e93ff);
+        background: linear-gradient(90deg,var(--themColor), var(--themColorT), var(--themColorS));
         color: #fff;
         text-align: center;
         cursor: pointer;
         position: relative;
         border-radius: 5px;
     }
+    .login-bottom:hover{
+    opacity: .9;
+}
 }
 
 

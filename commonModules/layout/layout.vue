@@ -16,7 +16,7 @@
         <Input prefix="ios-search" placeholder="搜索菜单" class="title-seach" />
         <Dropdown trigger="click" class="ht_changeSys" @on-click="selectSetem" v-if="isMainFrame.toString() == 'true'">
             {{currentSystem.systemName}}
-            <Icon type="ios-repeat" size="20" />
+            <Icon  custom="iconfont icon-icon-qihuan"  size="16" style="vertical-align: inherit;" />
             <span class="ht_division">|</span>
           <DropdownMenu slot="list">
               <DropdownItem v-for="(item,index) in sonSystem" 

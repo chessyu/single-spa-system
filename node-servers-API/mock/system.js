@@ -21,39 +21,39 @@ const system = [
         create_time :'2021-01-30',
         create_user : '系统管理员'
     },
-    {
-        system_id : 102,
-        system_name : "账务管理系统",
-        system_code : "ACM",
-        menu_id:3,
-        icon:'',
-        path:'acm',
-        status:1,
-        create_time :'2021-01-30',
-        create_user : '系统管理员'
-    },
-    {
-        system_id : 103,
-        system_name : "供应链",
-        system_code : "SYC",
-        menu_id:4,
-        icon:'',
-        path:'syc',
-        status:1,
-        create_time :'2021-01-30',
-        create_user : '系统管理员'
-    },
-    {
-        system_id : 104,
-        system_name : "物流管理系统",
-        system_code : "LSM",
-        menu_id:5,
-        icon:'',
-        path:'lsm',
-        status:1,
-        create_time :'2021-01-30',
-        create_user : '系统管理员'
-    },
+    // {
+    //     system_id : 102,
+    //     system_name : "账务管理系统",
+    //     system_code : "ACM",
+    //     menu_id:3,
+    //     icon:'',
+    //     path:'acm',
+    //     status:1,
+    //     create_time :'2021-01-30',
+    //     create_user : '系统管理员'
+    // },
+    // {
+    //     system_id : 103,
+    //     system_name : "供应链",
+    //     system_code : "SYC",
+    //     menu_id:4,
+    //     icon:'',
+    //     path:'syc',
+    //     status:1,
+    //     create_time :'2021-01-30',
+    //     create_user : '系统管理员'
+    // },
+    // {
+    //     system_id : 104,
+    //     system_name : "物流管理系统",
+    //     system_code : "LSM",
+    //     menu_id:5,
+    //     icon:'',
+    //     path:'lsm',
+    //     status:1,
+    //     create_time :'2021-01-30',
+    //     create_user : '系统管理员'
+    // },
 ]
 
 

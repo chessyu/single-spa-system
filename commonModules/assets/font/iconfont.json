@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1327132",
+      "name": "切换",
+      "font_class": "icon-qihuan",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
       "icon_id": "1461914",
       "name": "警察",
       "font_class": "jingcha",
