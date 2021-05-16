@@ -1,6 +1,6 @@
 const sqlActions = require('../lib/mysql');
 const {SYSTEM} = require('../mock/system')
-const {ORMMENU,CRMMENU} = require('../mock/meun')
+const {ORMMENU,CRMMENU,PFSMENU} = require('../mock/meun')
 
 /**获取有权限的子系统 */
 async function getChildrenSys(){
@@ -24,8 +24,9 @@ async function getSystemMenu(menuId){
     let relust = {};
     relust.code = 200;
     relust.msg = '操作成功';
-    if(menuId == 100) relust.data = CRMMENU;
+    if(menuId == 100) relust.data = PFSMENU;
     if(menuId == 101) relust.data = ORMMENU;
+    if(menuId == 102) relust.data = CRMMENU;
     return relust;
 }
 

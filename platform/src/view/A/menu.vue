@@ -5,7 +5,7 @@
                 <Form :model="menuQuery" :label-width="80" class="form__style">
                     <Row>
                         <Col span="8">
-                            <FormItem label="角色" class="form_item">
+                            <FormItem label="菜单名称" class="form_item">
                                 <Input v-model="menuQuery.deptName" placeholder="请输入角色名称" />
                             </FormItem>
                         </Col>
@@ -14,6 +14,13 @@
                                 <Select v-model="menuQuery.status" clearable>
                                     <Option value="1">正常</Option>
                                     <Option value="0">禁用</Option>
+                                </Select>
+                            </FormItem>
+                        </Col>
+                        <Col span="8">
+                            <FormItem label="所属系统"  class="form_item">
+                                <Select v-model="menuQuery.systemCode" clearable>
+                                    <Option :value="item.system_code" v-for="item in sysList" :key="item.system_code">{{item.system_name}}</Option>
                                 </Select>
                             </FormItem>
                         </Col>
@@ -33,11 +40,11 @@
                         <Icon type="md-add"></Icon>新增
                     </Button>
                 </div>
-                <Table class="table-container" border :height="tableHeight" :loading="loading" :columns="titleConfig" :data="tableData">
+                <Table row-key="menu_id" class="table-container" border :height="tableHeight" :loading="loading" :columns="titleConfig" :data="tableData">
                     <template slot-scope="{ row, index }" slot="status">
                         <i-switch  v-model="row.status"  @on-change="userStatusChange($event,index)" ></i-switch>
                     </template>
-                    <template slot-scope="{ row, index }" slot="action" v-if="index>0">
+                    <template slot-scope="{ row, index }" slot="action" >
                         <span class="table-button edit" @click="edit(row)">修改</span>
                         <span class="table-button deleted" @click="deleted(row)">删除</span>
                     </template>
@@ -51,7 +58,7 @@
 </template>
 
 <script>
-import { PA_getUserList } from '@/api/system/user'
+import { PFS_getMenuList,PFS_getSystemList } from '@/api/system/menu'
 import { fixedTableHeader } from '../../../../commonModules/utils/help.js'
 import { mapGetters } from 'vuex'
 export default {
@@ -64,19 +71,45 @@ export default {
                 },
                 deptName:'',
                 status:'',
+                systemCode:''
 
             },
             dropdown:false,
             titleConfig:[
                 {
-                    title: '用户名称',
-                    key: 'user_name',
+                    title: '菜单名称',
+                    key: 'title',
+                    align: 'center',
+                    minWidth:120,
+                    tree: true
+                },
+                {
+                    title: '编码',
+                    key: 'menu_code',
                     align: 'center',
                     minWidth:120,
                 },
                 {
-                    title: '编码',
-                    key: 'user_code',
+                    title: '图标',
+                    key: 'icon',
+                    align: 'center',
+                    minWidth:120,
+                },
+                {
+                    title: '路径',
+                    key: 'path',
+                    align: 'center',
+                    minWidth:120,
+                },
+                {
+                    title: '路由名称',
+                    key: 'component',
+                    align: 'center',
+                    minWidth:120,
+                },
+                 {
+                    title: '所属系统',
+                    key: 'formSys',
                     align: 'center',
                     minWidth:120,
                 },
@@ -87,6 +120,7 @@ export default {
                     minWidth:120,
                     slot: 'status',
                 },
+
                 {
                     title: '创建人',
                     key: 'create_user',
@@ -110,7 +144,8 @@ export default {
             tableData:[],
             loading:false,
             tableHeight:0,
-            pageTotal:0
+            pageTotal:0,
+            sysList:[]
         }
     },
     computed:{
@@ -118,15 +153,22 @@ export default {
     },
     mounted(){
         this.init();
+        this.getSystemList();
         this.tableHeight = fixedTableHeader(this.getViewPort,this);
     },
     methods:{
         async init(){
             this.loading = true;
-            let data = await PA_getUserList();
+            let data = await PFS_getMenuList();
             this.tableData = data.data;
             this.pageTotal = data.total;
             this.loading = false;
+            console.log(this.tableData)
+        },
+        async getSystemList(){
+            let data = await PFS_getSystemList();
+            this.sysList = data.data;
+            
         },
         query(){
             this.add();

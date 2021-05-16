@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import { PA_getUserList } from '@/api/system/user'
+import { PFS_getUserList } from '@/api/system/user'
 import { fixedTableHeader } from '../../../../commonModules/utils/help.js'
 import { mapGetters } from 'vuex'
 export default {
@@ -123,7 +123,7 @@ export default {
     methods:{
         async init(){
             this.loading = true;
-            let data = await PA_getUserList();
+            let data = await PFS_getUserList();
             this.tableData = data.data;
             this.pageTotal = data.total;
             this.loading = false;
