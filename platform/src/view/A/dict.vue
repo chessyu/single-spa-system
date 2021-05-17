@@ -5,8 +5,8 @@
                 <Form :model="menuQuery" :label-width="80" class="form__style">
                     <Row>
                         <Col span="8">
-                            <FormItem label="角色" class="form_item">
-                                <Input v-model="menuQuery.deptName" placeholder="请输入角色名称" />
+                            <FormItem label="字典编码" class="form_item">
+                                <Input v-model="menuQuery.dictCode" placeholder="请输入字典编码" />
                             </FormItem>
                         </Col>
                         <Col span="8">
@@ -37,7 +37,7 @@
                     <template slot-scope="{ row, index }" slot="status">
                         <i-switch  v-model="row.status"  @on-change="userStatusChange($event,index)" ></i-switch>
                     </template>
-                    <template slot-scope="{ row, index }" slot="action" v-if="index>0">
+                    <template slot-scope="{ row }" slot="action">
                         <span class="table-button edit" @click="edit(row)">修改</span>
                         <span class="table-button deleted" @click="deleted(row)">删除</span>
                     </template>
@@ -62,7 +62,7 @@ export default {
                     pageIndex: 1,
                     pageSize: 10
                 },
-                deptName:'',
+                dictCode:'',
                 status:'',
 
             },
