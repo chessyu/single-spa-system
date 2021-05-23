@@ -5,8 +5,8 @@
                 <Form :model="menuQuery" :label-width="80" class="form__style">
                     <Row>
                         <Col span="8">
-                            <FormItem label="角色" class="form_item">
-                                <Input v-model="menuQuery.deptName" placeholder="请输入角色名称" />
+                            <FormItem label="职位名称" class="form_item">
+                                <Input v-model="menuQuery.postName" placeholder="请输入角色名称" />
                             </FormItem>
                         </Col>
                         <Col span="8">
@@ -33,11 +33,11 @@
                         <Icon type="md-add"></Icon>新增
                     </Button>
                 </div>
-                <Table class="table-container" border :height="tableHeight" :loading="loading" :columns="titleConfig" :data="tableData">
+                <Table class="table-container"  :height="tableHeight" :loading="loading" :columns="titleConfig" :data="tableData">
                     <template slot-scope="{ row, index }" slot="status">
                         <i-switch  v-model="row.status"  @on-change="userStatusChange($event,index)" ></i-switch>
                     </template>
-                    <template slot-scope="{ row, index }" slot="action" v-if="index>0">
+                    <template slot-scope="{ row }" slot="action">
                         <span class="table-button edit" @click="edit(row)">修改</span>
                         <span class="table-button deleted" @click="deleted(row)">删除</span>
                     </template>
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import { PFS_getUserList } from '@/api/system/user'
+import { PFS_getPostData } from '@/api/system/post'
 import { fixedTableHeader } from '../../../../commonModules/utils/help.js'
 import { mapGetters } from 'vuex'
 export default {
@@ -69,14 +69,14 @@ export default {
             dropdown:false,
             titleConfig:[
                 {
-                    title: '用户名称',
-                    key: 'user_name',
+                    title: '职位名称',
+                    key: 'postName',
                     align: 'center',
                     minWidth:120,
                 },
                 {
-                    title: '编码',
-                    key: 'user_code',
+                    title: '职位编码',
+                    key: 'postCode',
                     align: 'center',
                     minWidth:120,
                 },
@@ -123,7 +123,7 @@ export default {
     methods:{
         async init(){
             this.loading = true;
-            let data = await PFS_getUserList();
+            let data = await PFS_getPostData();
             this.tableData = data.data;
             this.pageTotal = data.total;
             this.loading = false;

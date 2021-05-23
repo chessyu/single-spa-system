@@ -33,7 +33,7 @@
                         <Icon type="md-add"></Icon>新增
                     </Button>
                 </div>
-                <Table class="table-container" border :height="tableHeight" :loading="loading" :columns="titleConfig" :data="tableData">
+                <Table class="table-container" :height="tableHeight" :loading="loading" :columns="titleConfig" :data="tableData">
                     <template slot-scope="{ row, index }" slot="status">
                         <i-switch  v-model="row.status"  @on-change="userStatusChange($event,index)" ></i-switch>
                     </template>

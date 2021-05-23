@@ -40,11 +40,11 @@
                         <Icon type="md-add"></Icon>新增
                     </Button>
                 </div>
-                <Table row-key="menu_id" class="table-container" border :height="tableHeight" :loading="loading" :columns="titleConfig" :data="tableData">
+                <Table row-key="menu_id" class="table-container"  :height="tableHeight" :loading="loading" :columns="titleConfig" :data="tableData">
                     <template slot-scope="{ row, index }" slot="status">
                         <i-switch  v-model="row.status"  @on-change="userStatusChange($event,index)" ></i-switch>
                     </template>
-                    <template slot-scope="{ row, index }" slot="action" >
+                    <template slot-scope="{ row }" slot="action" >
                         <span class="table-button edit" @click="edit(row)">修改</span>
                         <span class="table-button deleted" @click="deleted(row)">删除</span>
                     </template>
@@ -61,6 +61,7 @@
 import { PFS_getMenuList,PFS_getSystemList } from '@/api/system/menu'
 import { fixedTableHeader } from '../../../../commonModules/utils/help.js'
 import { mapGetters } from 'vuex'
+
 export default {
     data(){
         return{

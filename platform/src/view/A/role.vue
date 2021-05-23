@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import { PFS_getUserList } from '@/api/system/user'
+import { PFS_getRoleData } from '@/api/system/role'
 import { fixedTableHeader } from '../../../../commonModules/utils/help.js'
 import { mapGetters } from 'vuex'
 export default {
@@ -69,14 +69,14 @@ export default {
             dropdown:false,
             titleConfig:[
                 {
-                    title: '用户名称',
-                    key: 'user_name',
+                    title: '角色名称',
+                    key: 'roleName',
                     align: 'center',
                     minWidth:120,
                 },
                 {
-                    title: '编码',
-                    key: 'user_code',
+                    title: '角色编码',
+                    key: 'roleCode',
                     align: 'center',
                     minWidth:120,
                 },
@@ -123,7 +123,7 @@ export default {
     methods:{
         async init(){
             this.loading = true;
-            let data = await PFS_getUserList();
+            let data = await PFS_getRoleData();
             this.tableData = data.data;
             this.pageTotal = data.total;
             this.loading = false;
