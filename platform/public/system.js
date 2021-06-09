@@ -1,11 +1,12 @@
 
 // const argv = require('yargs-parser')(process.argv.slice(2))
+const modulePath = require('../../commonModules/build/module.path.dev.config')
 
 const env = process.env.ENVPARA;
 //开发环境时的 systemjs 的配置
 let  systemjsImportmapDev = {
   "imports": {
-    "ORM":    "http://192.168.0.104:5004/script/main.bundle.js",
+    ...modulePath,
     "single-spa": "/cdn/single-spa.js",
     "vue": "/cdn/vue.js",
     "vue-router": "/cdn/vue-router.min.js" 

@@ -505,11 +505,25 @@ export default {
             singleSpa.unloadApplication(singleName[i], {waitForUnmount: false})
           }
         }
-        // console.log(_this.sonSystem,"aaaaaaa")
-        // _this.sonSystem.map(item => {
+
+        _this.sonSystem.map((item,index) => {
+          if(!index) return;
+          singleSpa.registerApplication(
+            item.systemName,
+            () => window.System.import(item.code), 
+            // () => window.System.import(ccp),                //通过缓存拉取子项目的依赖。
+            location =>  true ,
+            {"customProps":{
+              // "token": Cookies.get("Admin-Token"),
+              "cacheData":_this.getCacheData
+            }}
+          );
+        })
+
+        // if(_this.childrenSysData.includes("ORM")){
         //   singleSpa.registerApplication(
-        //     item.systemName,
-        //     () => window.System.import(item.code), 
+        //     '中控平台',
+        //     () => window.System.import('ORM'), 
         //     // () => window.System.import(ccp),                //通过缓存拉取子项目的依赖。
         //     location =>  true ,
         //     {"customProps":{
@@ -517,20 +531,7 @@ export default {
         //       "cacheData":_this.getCacheData
         //     }}
         //   );
-        // })
-
-        if(_this.childrenSysData.includes("ORM")){
-          singleSpa.registerApplication(
-            '中控平台',
-            () => window.System.import('ORM'), 
-            // () => window.System.import(ccp),                //通过缓存拉取子项目的依赖。
-            location =>  true ,
-            {"customProps":{
-              "token": Cookies.get("Admin-Token"),
-              "cacheData":_this.getCacheData
-            }}
-          );
-        }
+        // }
 
         // if(_this.childrenSysData.includes("CCP")){
         //   singleSpa.registerApplication(
